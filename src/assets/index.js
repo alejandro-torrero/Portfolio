@@ -8,7 +8,7 @@ import close from "./close.svg";
 
 // Tech
 
-import muiIcon from "./tech/mui.png";
+import muiIcon from "./tech/muiIcon.png";
 import expressIcon from "./tech/express.png";
 import mysql from "./tech/mysql.png";
 import reactNative from "./tech/reactnative.svg";
