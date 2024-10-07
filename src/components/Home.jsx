@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import About from "./About";
 import Experience from "./Experience";
 import Tech from "./Tech";
-import Works from "./Works";
+import Projects from "./Projects";
 import Contact from "./Contact";
 import Feedbacks from "./Feedbacks";
 import { StarsCanvas } from "./canvas";
@@ -19,7 +19,7 @@ const Home = () => {
       <About />
       <Experience />
       <Tech />
-      <Works />
+      <Projects />
       {/* <Feedbacks /> */}
       <div className="relative z-0">
         <Contact />

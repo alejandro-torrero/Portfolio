@@ -1,4 +1,3 @@
-import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../data";
 import { motion } from "framer-motion";
