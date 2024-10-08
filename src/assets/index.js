@@ -10,6 +10,7 @@ import muiIcon from "./tech/muiIcon.png";
 import expressIcon from "./tech/express.png";
 import mysql from "./tech/mysql.png";
 import reactNative from "./tech/reactnative.svg";
+import iis from "./tech/iis.png"
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -67,4 +68,5 @@ export {
   mysql,
   reactNative,
   computerScience,
+  iis
 };

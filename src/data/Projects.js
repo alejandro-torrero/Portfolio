@@ -19,7 +19,7 @@ export const projects = [
       },
     ],
     image: carrent,
-    source_code_link: "",
+    source_code_link: null,
   },
   {
     name: "Barcode Scanner App",
@@ -31,7 +31,7 @@ export const projects = [
       },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: null,
   },
   {
     name: "Splash Page Form",
@@ -43,7 +43,7 @@ export const projects = [
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: null,
   },
   {
     name: "Asset Management System",
@@ -60,6 +60,6 @@ export const projects = [
       },
     ],
     image: dashboardSAV,
-    source_code_link: "https://github.com/",
+    source_code_link: null,
   },
 ];

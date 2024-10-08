@@ -25,6 +25,10 @@ const ExperienceCard = ({ experience }) => {
           />
         </div>
       }
+      iconOnClick={() => {
+        window.open(experience.companyLink, "_blank");
+      }}
+      iconClassName="hover:cursor-pointer"
     >
       <div>
         <h3 className="font-bold text-white text-[24px]">{experience.title}</h3>

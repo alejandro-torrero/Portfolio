@@ -10,6 +10,7 @@ import {
   mongodb,
   git,
   threejs,
+  iis,
   muiIcon,
   expressIcon,
   mysql,
@@ -50,6 +51,10 @@ export const technologies = [
     icon: tailwind,
   },
   {
+    name: "MUI",
+    icon: muiIcon,
+  },
+  {
     name: "Node JS",
     icon: nodejs,
   },
@@ -68,9 +73,9 @@ export const technologies = [
   {
     name: "git",
     icon: git,
-  },
+  },  
   {
-    name: "MUI",
-    icon: muiIcon,
-  },
+    name:"Microsoft IIS",
+    icon:iis
+  }
 ];
