@@ -1,10 +1,8 @@
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+
+import computerScience from "./cs.png";
 
 // Tech
 
@@ -40,11 +38,7 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import profilePhoto from "./atorrero.jpg";
 
-export {
-  backend,
-  creator,
-  mobile,
-  web,
+export {  
   github,
   menu,
   close,
@@ -71,5 +65,6 @@ export {
   muiIcon,
   expressIcon,
   mysql,
-  reactNative
+  reactNative,
+  computerScience,
 };

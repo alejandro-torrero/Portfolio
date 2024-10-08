@@ -5,7 +5,7 @@ import { services } from "../data";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
 
-const ServiceCard = ({ index, title, icon }) => {
+const ServiceCard = ({ index, title, icon, icon2 }) => {
   return (
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
@@ -20,7 +20,10 @@ const ServiceCard = ({ index, title, icon }) => {
           }}
           className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
         >
-          <img src={icon} className="w-16 h-16 object-contain" />
+          <div className="flex">
+            <img src={icon} className="w-16 h-16 object-contain" />
+            {icon2 && <img src={icon2} className="w-16 h-16 object-contain" />}
+          </div>
           <h3 className="text-white text-[20px] font-bold text-center">
             {title}
           </h3>

@@ -1,4 +1,4 @@
-import { services } from "./Services";
+import { services } from "./Services.jsx";
 import { technologies } from "./Technologies";
 import { experiences } from "./WorkExperience";
 import { projects } from "./Projects";
