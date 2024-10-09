@@ -3,6 +3,7 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 
 import computerScience from "./cs.png";
+import ticketSenderCartoon from "./sender.jpeg"
 
 // Tech
 
@@ -70,5 +71,6 @@ export {
   reactNative,
   computerScience,
   iis,
-  LinkedinIcon
+  LinkedinIcon,
+  ticketSenderCartoon
 };

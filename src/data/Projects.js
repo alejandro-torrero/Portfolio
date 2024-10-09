@@ -1,4 +1,11 @@
-import { carrent, jobit, tripguide, assetSAV, dashboardSAV } from "../assets";
+import { m } from "framer-motion";
+import {
+  carrent,
+  jobit,
+  tripguide,
+  ticketSenderCartoon,
+  dashboardSAV,
+} from "../assets";
 
 export const projects = [
   {
@@ -30,6 +37,10 @@ export const projects = [
       {
         name: "React Native",
         color: "#00a9d9",
+      },
+      {
+        name: "expo",
+        color: "#ffffff",
       },
     ],
     image: jobit,
@@ -68,9 +79,23 @@ export const projects = [
   },
   {
     name: "Ticket Sender",
-    description: "Automatic ",
-    tags: [],
-    image: null,
+    description:
+      "Automatic single execution code that sends custom emails in order to create an IT ticket. In need to send masive amounts of IT tickets for administrative tasks.",
+    tags: [
+      {
+        name: "NodeJS",
+        color: "#21a366",
+      },
+      {
+        name: "JavaScript",
+        color: "#e8d44d",
+      },
+      {
+        name: "Nodemailer",
+        color: "#18a9a0 ",
+      },
+    ],
+    image: ticketSenderCartoon,
     source_code_link: null,
     link: "",
   },
