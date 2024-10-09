@@ -7,6 +7,7 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import Feedbacks from "./Feedbacks";
 import { StarsCanvas } from "./canvas";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
         <Contact />
         {/* <StarsCanvas /> */}
       </div>
+      <Footer />
     </div>
   );
 };

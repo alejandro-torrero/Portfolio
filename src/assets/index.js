@@ -28,6 +28,7 @@ import threejs from "./tech/threejs.svg";
 
 // Companies
 import VinteIcon from "./company/VinteIcon.png";
+import LinkedinIcon from "./company/LinkedinIcon.png"
 
 // SAV
 
@@ -68,5 +69,6 @@ export {
   mysql,
   reactNative,
   computerScience,
-  iis
+  iis,
+  LinkedinIcon
 };

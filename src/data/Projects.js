@@ -3,7 +3,8 @@ import { carrent, jobit, tripguide, assetSAV, dashboardSAV } from "../assets";
 export const projects = [
   {
     name: "Data Dashboard Integration System",
-    description: "",
+    description:
+      "BI platform integrating third-party APIs and semi-manual data input. Centralizing key metrics on agent and user statuses.",
     tags: [
       {
         name: "React",
@@ -23,7 +24,8 @@ export const projects = [
   },
   {
     name: "Barcode Scanner App",
-    description: "",
+    description:
+      "Multi-format barcode scanner using React Native, streamlining data entry by scanning codes and sending them via email. Enabled quick copy-paste functionality to simplify the invoice payment process.",
     tags: [
       {
         name: "React Native",
@@ -35,7 +37,8 @@ export const projects = [
   },
   {
     name: "Splash Page Form",
-    description: "",
+    description:
+      "Dynamic and adaptable splash page for Wi-Fi networks, collecting user information through a form and Cisco Meraki's URL parameters.",
     tags: [
       {
         name: "NodeJS",
@@ -61,5 +64,14 @@ export const projects = [
     ],
     image: dashboardSAV,
     source_code_link: null,
+    link: "smart-asset-vinte",
+  },
+  {
+    name: "Ticket Sender",
+    description: "Automatic ",
+    tags: [],
+    image: null,
+    source_code_link: null,
+    link: "",
   },
 ];

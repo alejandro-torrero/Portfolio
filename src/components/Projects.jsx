@@ -7,6 +7,8 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../data";
 import { fadeIn, textVariant } from "../utils/motion";
 
+import { useNavigate } from "react-router-dom";
+
 const ProjectCard = ({
   index,
   name,
@@ -14,12 +16,17 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  link,
 }) => {
+  const nav = useNavigate();
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <motion.div
         whileHover={{ scale: 1.05, cursor: "pointer" }}
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] h-[490px] w-full"
+        onClick={() => {
+          nav(link);
+        }}
       >
         <div className="relative w-full h-[230px]">
           <img
@@ -68,6 +75,7 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
+  const nav = useNavigate();
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -94,10 +102,17 @@ const Projects = () => {
         ))}
       </div>
       <div className="flex justify-end">
-        <a href="#">More...</a>
+        <button
+          className="border border-[#4a77ff] text-[#4a77ff] font-semibold bg-transparent hover:bg-[#082540] hover:text-white transition-colors duration-300 px-4 py-2 rounded"
+          onClick={() => {
+            nav("/projects")
+          }}
+        >
+          More ...
+        </button>
       </div>
     </>
   );
 };
 
-export default SectionWrapper("works", Projects);
+export default SectionWrapper("projects", Projects);
