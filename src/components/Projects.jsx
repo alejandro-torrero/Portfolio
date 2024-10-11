@@ -23,16 +23,16 @@ const ProjectCard = ({
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <motion.div
         whileHover={{ scale: 1.05, cursor: "pointer" }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] h-[490px] w-full"
+        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] h-[440px] w-full"
         onClick={() => {
           nav(link);
         }}
       >
-        <div className="relative w-full h-[230px]">
+        <div className="relative w-full h-[180px]">
           <img
             src={image}
             alt="project_image"
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full rounded-2xl"            
           />
 
           {source_code_link != null && (
@@ -105,7 +105,7 @@ const Projects = () => {
         <button
           className="border border-[#4a77ff] text-[#4a77ff] font-semibold bg-transparent hover:bg-[#082540] hover:text-white transition-colors duration-300 px-4 py-2 rounded"
           onClick={() => {
-            nav("/projects")
+            //nav("/projects")
           }}
         >
           More ...

@@ -1,10 +1,9 @@
-import { m } from "framer-motion";
 import {
-  carrent,
-  jobit,
-  tripguide,
+  odDashboard,
   ticketSenderCartoon,
   dashboardSAV,
+  splashPageForm,
+  appPresentation,
 } from "../assets";
 
 export const projects = [
@@ -26,7 +25,7 @@ export const projects = [
         color: "#007fff",
       },
     ],
-    image: carrent,
+    image: odDashboard,
     source_code_link: null,
   },
   {
@@ -43,7 +42,7 @@ export const projects = [
         color: "#ffffff",
       },
     ],
-    image: jobit,
+    image: appPresentation,
     source_code_link: null,
   },
   {
@@ -56,7 +55,7 @@ export const projects = [
         color: "#21a366",
       },
     ],
-    image: tripguide,
+    image: splashPageForm,
     source_code_link: null,
   },
   {
@@ -75,7 +74,7 @@ export const projects = [
     ],
     image: dashboardSAV,
     source_code_link: null,
-    link: "smart-asset-vinte",
+    link: null,
   },
   {
     name: "Ticket Sender",

@@ -3,7 +3,7 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 
 import computerScience from "./cs.png";
-import ticketSenderCartoon from "./sender.jpeg"
+import ticketSenderCartoon from "./sender.jpeg";
 
 // Tech
 
@@ -11,7 +11,7 @@ import muiIcon from "./tech/muiIcon.png";
 import expressIcon from "./tech/express.png";
 import mysql from "./tech/mysql.png";
 import reactNative from "./tech/reactnative.svg";
-import iis from "./tech/iis.png"
+import iis from "./tech/iis.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -29,19 +29,32 @@ import threejs from "./tech/threejs.svg";
 
 // Companies
 import VinteIcon from "./company/VinteIcon.png";
-import LinkedinIcon from "./company/LinkedinIcon.png"
+import LinkedinIcon from "./company/LinkedinIcon.png";
 
 // SAV
 
 import assetSAV from "./projects/sav/asset.png";
 import dashboardSAV from "./projects/sav/dashboard.png";
 
+// Splash page
+
+import splashPageForm from "./projects/splash-page/splashPageForm.png";
+
+// barCode Scanner
+
+import appScanner from "./projects/bar-code-scanner/appScanner.jpg";
+import appPresentation from "./projects/bar-code-scanner/BarcodeScannerPr.jpg";
+
+// TI-SYS
+
+import odDashboard from "./projects/ti-sys/odDashboard.png";
+
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import profilePhoto from "./atorrero.jpg";
 
-export {  
+export {
   github,
   menu,
   close,
@@ -72,5 +85,9 @@ export {
   computerScience,
   iis,
   LinkedinIcon,
-  ticketSenderCartoon
+  ticketSenderCartoon,
+  splashPageForm,
+  appScanner,
+  appPresentation,
+  odDashboard,
 };
