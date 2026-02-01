@@ -34,13 +34,24 @@ const es = {
       {
         title: "Auxiliar de Soporte IT",
         company_name: "Inmobiliaria Vinte",
-        date: "Mayo 2023 - Hoy",
+        date: "Mayo 2023 - Nov 2024",
         points: [
           "Administré redes de oficinas a nivel nacional usando la plataforma web Cisco Meraki y gestioné dispositivos de red directamente.",
           "Gestioné y configuré firewalls Fortinet a nivel nacional, manteniendo VPNs, enrutamiento, seguridad y funcionalidad SD-WAN.",
           "Desarrollé múltiples proyectos de programación para optimizar procesos, utilizando arquitectura MVC, macros VBA en Excel y diseño y gestión de bases de datos.",
           "Utilicé APIs de consola para generar reportes personalizados y apoyar tareas de administración IT.",
           "Desarrollo soluciones técnicas con un profundo entendimiento de los fundamentos de programación y arquitectura de sistemas.",
+        ],
+      },
+      {
+        title: "Desarrollador de Software",
+        company_name: "Xira",
+        date: "Nov 2024 - Hoy",
+        points: [
+          "Trabajo principalmente en proyectos con JavaScript y TypeScript como wrappers de IA.",
+          "Desarrollo voicebots con conexión SIP integrada con carriers.",
+          "Desarrollo RPAs (Automatización Robótica de Procesos) para automatización de flujos.",
+          "Uso programación concurrente para construir workers que manejan flujos de alta complejidad.",
         ],
       },
     ],

@@ -24,8 +24,10 @@ export const experiences = [
     companyLink: "https://xira.ai/",
     date: "Nov 2024 - Today",
     points: [
-      "Developed a web application to manage the company's projects and tasks.",
-      "Developed a web application to manage the company's projects and tasks.",
-    ]
-  }
+      "Work primarily on JavaScript and TypeScript projects as AI wrappers.",
+      "Build voicebots with SIP connectivity integrated with carriers.",
+      "Develop RPAs (Robotic Process Automation) for workflow automation.",
+      "Use concurrency programming to build workers that handle highly complex flows.",
+    ],
+  },
 ];
