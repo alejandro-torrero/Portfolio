@@ -3,14 +3,14 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
-
 import "react-vertical-timeline-component/style.min.css";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import { textVariant } from "../utils/motion";
 import { experiences } from "../data";
+import { useLanguage } from "../contexts/LanguageContext";
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, localeContent }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{ background: "#082540", color: "#fff" }}
@@ -20,7 +20,7 @@ const ExperienceCard = ({ experience }) => {
         <div className="w-full h-full flex items-center justify-center">
           <img
             src={experience.icon}
-            alt={experience.company_name}
+            alt={localeContent?.company_name ?? experience.company_name}
             className="w-[60%] h-[60%] object-contain"
           />
         </div>
@@ -31,14 +31,18 @@ const ExperienceCard = ({ experience }) => {
       iconClassName="hover:cursor-pointer"
     >
       <div>
-        <h3 className="font-bold text-white text-[24px]">{experience.title}</h3>
-        <p>{experience.company_name}</p>
-        <p>{experience.date}</p>
+        <h3 className="font-bold text-white text-[24px]">
+          {localeContent?.title ?? experience.title}
+        </h3>
+        <p className="text-secondary">
+          {localeContent?.company_name ?? experience.company_name}
+        </p>
+        <p className="text-secondary/80 text-sm">{localeContent?.date}</p>
         <ul className="mt-5 list-disc ml-5 space-y-2">
-          {experience.points.map((item, index) => (
+          {(localeContent?.points ?? experience.points).map((item, index) => (
             <li
               key={index}
-              className="text-white text-[14px] pl-1 tracking-wider"
+              className="text-white/90 text-[14px] pl-1 tracking-wider"
             >
               {item}
             </li>
@@ -50,17 +54,24 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  const { t } = useLanguage();
+  const localeExperiences = t("work.experiences") ?? [];
+
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Where I've worked</p>
-        <h2 className={styles.sectionHeadText}>Work Experience</h2>
+        <p className={styles.sectionSubText}>{t("work.sectionSubText")}</p>
+        <h2 className={styles.sectionHeadText}>{t("work.sectionHeadText")}</h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col">
-        <VerticalTimeline>
+        <VerticalTimeline lineColor="#082540">
           {experiences.map((experience, index) => (
-            <ExperienceCard key={index} experience={experience} />
+            <ExperienceCard
+              key={experience.company_name + index}
+              experience={experience}
+              localeContent={localeExperiences[index]}
+            />
           ))}
         </VerticalTimeline>
       </div>
