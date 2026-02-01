@@ -9,8 +9,11 @@ const en = {
   hero: {
     greeting: "Hi, I'm",
     name: "Alejandro",
+    tagline: "Full Stack Developer · Web & mobile solutions",
     subtitle:
       "I'm a software developer passionate about building solutions that bridge technology and business needs. Explore my projects and let's create something impactful together.",
+    ctaWork: "View my work",
+    ctaContact: "Get in touch",
   },
   about: {
     sectionSubText: "Introduction",
@@ -47,6 +50,8 @@ const en = {
     sectionHeadText: "Tech and frameworks",
     description:
       "Tech, frameworks and libraries I've used and have experience with. Most of them with professional proficiency or above.",
+    groupFrontend: "Frontend",
+    groupBackend: "Backend & tools",
   },
   projects: {
     sectionSubText: "My work",
@@ -54,6 +59,8 @@ const en = {
     description:
       "The following projects highlight my skills and experience through real-world applications. Each project includes a brief description, along with links to the code repositories and live demos. These showcase my ability to tackle complex challenges, work across various technologies, and manage projects efficiently.",
     moreButton: "More ...",
+    viewProject: "View project",
+    viewCode: "View code",
     list: [
       {
         name: "Data Dashboard Integration System",

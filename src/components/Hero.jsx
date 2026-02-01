@@ -1,28 +1,84 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { styles } from "../styles";
-import { useLanguage } from "../contexts/LanguageContext";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+  },
+};
+
+const item = {
+  hidden: { y: 24, opacity: 0 },
+  show: { y: 0, opacity: 1 },
+};
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section className="relative w-full h-screen mx-auto overflow-hidden">
       <div
         className={`${styles.paddingX} absolute inset-0 top-[90px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
-        <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#4a77ff]" />
+        <motion.div
+          className="flex flex-col justify-center items-center mt-5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          <div className="w-5 h-5 rounded-full bg-[#4a77ff] shadow-[0_0_20px_rgba(74,119,255,0.5)]" />
           <div className="w-1 sm:h-[60vh] h-40 blue-gradient" />
-        </div>
-        <div className="max-w-[620px]">
-          <h1 className={`text-white ${styles.heroHeadText}`}>
+        </motion.div>
+
+        <motion.div
+          className="max-w-[620px]"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.p
+            variants={item}
+            className="text-[#4a77ff] font-semibold text-sm sm:text-base tracking-wider uppercase mb-2"
+          >
+            {t("hero.tagline")}
+          </motion.p>
+          <motion.h1
+            variants={item}
+            className={`text-white ${styles.heroHeadText}`}
+          >
             {t("hero.greeting")}{" "}
-            <span className="text-[#4a77ff]">{t("hero.name")}</span>
-          </h1>
-          <p className="sm:bg-inherit bg-[#000322] mt-10 text-[18px] text-secondary leading-relaxed">
+            <span className="text-[#4a77ff] drop-shadow-[0_0_30px_rgba(74,119,255,0.4)]">
+              {t("hero.name")}
+            </span>
+          </motion.h1>
+          <motion.p
+            variants={item}
+            className="sm:bg-inherit bg-[#000322] mt-6 text-[17px] sm:text-[18px] text-secondary leading-relaxed max-w-[540px]"
+          >
             {t("hero.subtitle")}
-          </p>
-        </div>
+          </motion.p>
+
+          <motion.div
+            variants={item}
+            className="mt-10 flex flex-wrap gap-4"
+          >
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#4a77ff] text-white font-semibold text-sm shadow-lg shadow-[#4a77ff]/30 hover:shadow-[#4a77ff]/50 hover:bg-[#5c85ff] transition-all duration-300"
+            >
+              {t("hero.ctaWork")}
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#4a77ff]/60 text-[#4a77ff] font-semibold text-sm hover:bg-[#4a77ff]/10 transition-all duration-300"
+            >
+              {t("hero.ctaContact")}
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="absolute xs:bottom-35 bottom-32 w-full flex justify-center items-center">

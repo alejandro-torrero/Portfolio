@@ -1,8 +1,8 @@
 import { LinkedinIcon } from "../assets";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   return (
     <footer className="h-[72px] w-full px-6 flex justify-between items-center border-t border-white/5 bg-primary">

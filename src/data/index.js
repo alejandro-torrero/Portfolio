@@ -1,5 +1,5 @@
 import { services } from "./Services.jsx";
-import { technologies } from "./Technologies";
+import { technologies, techGroups } from "./Technologies";
 import { experiences } from "./WorkExperience";
 import { projects } from "./Projects";
 import { navLinks } from "./NavLinks";
@@ -31,4 +31,4 @@ const testimonials = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects,navLinks };
+export { services, technologies, techGroups, experiences, testimonials, projects, navLinks };

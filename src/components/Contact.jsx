@@ -4,11 +4,11 @@ import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
   const formRef = useRef();
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     name: "",
     email: "",

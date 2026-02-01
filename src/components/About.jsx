@@ -4,7 +4,7 @@ import { styles } from "../styles";
 import { services } from "../data";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 const ServiceCard = ({ index, title, icon, icon2 }) => {
   return (
@@ -33,11 +33,9 @@ const ServiceCard = ({ index, title, icon, icon2 }) => {
 };
 
 const About = () => {
-  const { t } = useLanguage();
-  const serviceTitles = t("about.services");
-  const titlesArray = Array.isArray(serviceTitles)
-    ? serviceTitles
-    : [serviceTitles];
+  const { t } = useTranslation();
+  const titlesArray = t("about.services", { returnObjects: true }) ?? [];
+  const safeTitles = Array.isArray(titlesArray) ? titlesArray : [titlesArray];
 
   return (
     <div>
@@ -58,7 +56,7 @@ const About = () => {
             key={service.title}
             index={index}
             {...service}
-            title={titlesArray[index] ?? service.title}
+            title={safeTitles[index] ?? service.title}
           />
         ))}
       </div>

@@ -9,8 +9,11 @@ const es = {
   hero: {
     greeting: "Hola, soy",
     name: "Alejandro",
+    tagline: "Desarrollador Full Stack · Soluciones web y móviles",
     subtitle:
       "Soy desarrollador de software apasionado por crear soluciones que conectan la tecnología con las necesidades del negocio. Explora mis proyectos y creemos algo con impacto juntos.",
+    ctaWork: "Ver mi trabajo",
+    ctaContact: "Contactar",
   },
   about: {
     sectionSubText: "Introducción",
@@ -47,6 +50,8 @@ const es = {
     sectionHeadText: "Tecnologías y frameworks",
     description:
       "Tecnologías, frameworks y librerías que he usado y con las que tengo experiencia. La mayoría con nivel profesional o superior.",
+    groupFrontend: "Frontend",
+    groupBackend: "Backend y herramientas",
   },
   projects: {
     sectionSubText: "Mi trabajo",
@@ -54,6 +59,8 @@ const es = {
     description:
       "Los siguientes proyectos muestran mis habilidades y experiencia a través de aplicaciones reales. Cada proyecto incluye una breve descripción y enlaces a repositorios y demos. Demuestran mi capacidad para afrontar retos complejos, trabajar con diversas tecnologías y gestionar proyectos de forma eficiente.",
     moreButton: "Más ...",
+    viewProject: "Ver proyecto",
+    viewCode: "Ver código",
     list: [
       {
         name: "Sistema de Integración de Dashboard de Datos",

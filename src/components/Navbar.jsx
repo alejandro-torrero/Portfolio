@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { styles } from "../styles";
 import { navLinks } from "../data";
 import { menu, close } from "../assets";
 import { profilePhoto } from "../assets";
-import { useLanguage } from "../contexts/LanguageContext";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const { t, locale, toggleLocale } = useLanguage();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = () => {
+    i18n.changeLanguage(i18n.language === "en" ? "es" : "en");
+  };
 
   return (
     <nav
@@ -54,11 +58,11 @@ const Navbar = () => {
           <li>
             <button
               type="button"
-              onClick={toggleLocale}
+              onClick={changeLanguage}
               className="text-secondary hover:text-white font-medium text-sm px-3 py-1.5 rounded-md border border-secondary/50 hover:border-white/30 transition-colors"
-              aria-label={locale === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
+              aria-label={i18n.language === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
             >
-              {locale === "en" ? "ES" : "EN"}
+              {i18n.language === "en" ? "ES" : "EN"}
             </button>
           </li>
         </ul>
@@ -67,11 +71,11 @@ const Navbar = () => {
       <div className="sm:hidden flex justify-end items-center gap-3">
         <button
           type="button"
-          onClick={toggleLocale}
+          onClick={changeLanguage}
           className="text-secondary hover:text-white text-sm font-medium px-2 py-1 rounded border border-secondary/50"
-          aria-label={locale === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
+          aria-label={i18n.language === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
         >
-          {locale === "en" ? "ES" : "EN"}
+          {i18n.language === "en" ? "ES" : "EN"}
         </button>
         <img
           src={menuOpen ? close : menu}

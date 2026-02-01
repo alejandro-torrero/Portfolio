@@ -8,7 +8,7 @@ import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import { textVariant } from "../utils/motion";
 import { experiences } from "../data";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 const ExperienceCard = ({ experience, localeContent }) => {
   return (
@@ -54,8 +54,9 @@ const ExperienceCard = ({ experience, localeContent }) => {
 };
 
 const Experience = () => {
-  const { t } = useLanguage();
-  const localeExperiences = t("work.experiences") ?? [];
+  const { t } = useTranslation();
+  const raw = t("work.experiences", { returnObjects: true });
+  const localeExperiences = Array.isArray(raw) ? raw : raw ? [raw] : [];
 
   return (
     <>
