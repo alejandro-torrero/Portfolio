@@ -29,10 +29,16 @@ const ProjectCard = ({
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <motion.div
         whileHover={{ scale: 1.02, y: -4 }}
-        className="group relative bg-tertiary/80 hover:bg-tertiary p-5 rounded-2xl sm:w-[360px] min-h-[440px] w-full border border-white/5 hover:border-[#4a77ff]/30 transition-all duration-300 shadow-lg hover:shadow-[0_20px_40px_-15px_rgba(74,119,255,0.15)] cursor-pointer"
+        className="group relative p-5 rounded-2xl sm:w-[360px] min-h-[440px] w-full border border-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer overflow-hidden"
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.04)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        }}
         onClick={handleCardClick}
       >
-        <div className="relative w-full h-[180px] rounded-xl overflow-hidden">
+        <div className="relative w-full h-[180px] rounded-xl overflow-hidden border border-white/5">
           <img
             src={image}
             alt={name}
@@ -66,7 +72,7 @@ const ProjectCard = ({
                   e.stopPropagation();
                   window.open(source_code_link, "_blank");
                 }}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform"
+                className="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/20"
               >
                 <img src={github} alt="source code" className="w-5 h-5" />
               </button>
@@ -148,3 +154,4 @@ const Projects = () => {
 };
 
 export default SectionWrapper("projects", Projects);
+export { ProjectCard };

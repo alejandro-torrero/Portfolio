@@ -52,7 +52,7 @@ const Navbar = () => {
               } hover:text-white text-[16px] font-medium cursor-pointer transition-colors`}
               onClick={() => setActive(link.titleKey)}
             >
-              <a href={`#${link.id}`}>{t(`nav.${link.titleKey}`)}</a>
+              <Link to={`/#${link.id}`}>{t(`nav.${link.titleKey}`)}</Link>
             </li>
           ))}
           <li>
@@ -100,7 +100,7 @@ const Navbar = () => {
                   setActive(nav.titleKey);
                 }}
               >
-                <a href={`#${nav.id}`}>{t(`nav.${nav.titleKey}`)}</a>
+                <Link to={`/#${nav.id}`}>{t(`nav.${nav.titleKey}`)}</Link>
               </li>
             ))}
           </ul>

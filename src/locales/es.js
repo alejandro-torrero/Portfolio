@@ -67,6 +67,9 @@ const es = {
   projects: {
     sectionSubText: "Mi trabajo",
     sectionHeadText: "Proyectos",
+    pageTitle: "Todos los proyectos",
+    backToHome: "Volver al inicio",
+    backToProjects: "Volver a proyectos",
     description:
       "Los siguientes proyectos muestran mis habilidades y experiencia a través de aplicaciones reales. Cada proyecto incluye una breve descripción y enlaces a repositorios y demos. Demuestran mi capacidad para afrontar retos complejos, trabajar con diversas tecnologías y gestionar proyectos de forma eficiente.",
     moreButton: "Más ...",
