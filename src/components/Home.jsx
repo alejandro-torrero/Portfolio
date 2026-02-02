@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import ScrollProgress from "./ScrollProgress";
 import Hero from "./Hero";
@@ -10,6 +12,17 @@ import { StarsCanvas } from "./canvas";
 import Footer from "./Footer";
 
 const Home = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (pathname !== "/" || !hash) return;
+    const id = hash.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [pathname, hash]);
+
   return (
     <div className="relative z-0 bg-primary">
       <ScrollProgress />
