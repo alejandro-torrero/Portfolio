@@ -81,7 +81,7 @@ const ProjectCard = ({
         </div>
 
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[22px] group-hover:text-[#4a77ff]/90 transition-colors">
+          <h3 className="text-white font-bold text-[22px] group-hover:text-accent-cyan transition-colors">
             {name}
           </h3>
           <p className="mt-2 text-secondary text-[14px] leading-relaxed line-clamp-3">
@@ -121,8 +121,8 @@ const Projects = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{t("projects.sectionSubText")}</p>
-        <h2 className={styles.sectionHeadText}>
+        <p className={`${styles.sectionSubText} section-sub-cyan`}>{t("projects.sectionSubText")}</p>
+        <h2 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
           {t("projects.sectionHeadText")}
         </h2>
       </motion.div>
@@ -143,7 +143,7 @@ const Projects = () => {
       <div className="flex justify-end mt-8">
         <button
           type="button"
-          className="border border-[#4a77ff] text-[#4a77ff] font-semibold bg-transparent hover:bg-[#4a77ff] hover:text-white transition-colors duration-300 px-5 py-2.5 rounded-lg"
+          className="border border-accent-cyan text-accent-cyan font-semibold bg-transparent hover:bg-accent-cyan hover:text-white transition-colors duration-300 px-5 py-2.5 rounded-lg"
           onClick={() => nav("/projects")}
         >
           {t("projects.moreButton")}

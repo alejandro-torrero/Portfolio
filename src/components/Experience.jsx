@@ -13,8 +13,16 @@ import { useTranslation } from "react-i18next";
 const ExperienceCard = ({ experience, localeContent }) => {
   return (
     <VerticalTimelineElement
-      contentStyle={{ background: "#082540", color: "#fff" }}
-      contentArrowStyle={{ borderRight: "7px solid #232621" }}
+      contentStyle={{
+        background: "rgba(255, 255, 255, 0.04)",
+        color: "#fff",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        border: "1px solid rgba(139, 92, 246, 0.2)",
+        borderRadius: "16px",
+        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid rgba(139, 92, 246, 0.4)" }}
       iconStyle={{ backgroundColor: experience.iconBg }}
       icon={
         <div className="w-full h-full flex items-center justify-center">
@@ -61,12 +69,14 @@ const Experience = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{t("work.sectionSubText")}</p>
-        <h2 className={styles.sectionHeadText}>{t("work.sectionHeadText")}</h2>
+        <p className={`${styles.sectionSubText} section-sub-accent`}>{t("work.sectionSubText")}</p>
+        <h2 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
+          {t("work.sectionHeadText")}
+        </h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col">
-        <VerticalTimeline lineColor="#082540">
+        <VerticalTimeline lineColor="rgba(139, 92, 246, 0.4)">
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={experience.company_name + index}

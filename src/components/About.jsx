@@ -8,15 +8,18 @@ import { useTranslation } from "react-i18next";
 
 const ServiceCard = ({ index, title, icon, icon2 }) => {
   return (
-    <Tilt className="xs:w-[250px] w-full">
+    <Tilt className="xs:w-[250px] w-full" options={{ max: 45, scale: 1, speed: 450 }}>
       <motion.div
         variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-        className="w-full green-blue-gradient p-[1px] rounded-[20px] shadow-card"
+        className="w-full rounded-[20px] overflow-hidden border border-white/10 hover:border-accent-cyan/50 transition-colors duration-300"
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.04)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        }}
       >
-        <div
-          options={{ max: 45, scale: 1, speed: 450 }}
-          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-        >
+        <div className="rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
           <div className="flex gap-3">
             <img src={icon} alt="" className="w-16 h-16 object-contain" />
             {icon2 && (
@@ -40,8 +43,10 @@ const About = () => {
   return (
     <div>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{t("about.sectionSubText")}</p>
-        <h2 className={styles.sectionHeadText}>{t("about.sectionHeadText")}</h2>
+        <p className={`${styles.sectionSubText} section-sub-accent`}>{t("about.sectionSubText")}</p>
+        <h2 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
+          {t("about.sectionHeadText")}
+        </h2>
       </motion.div>
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}

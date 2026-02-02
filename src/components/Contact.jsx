@@ -162,8 +162,8 @@ const Contact = () => {
               WebkitBackdropFilter: "blur(16px)",
             }}
           >
-            <p className={styles.sectionSubText}>{t("contact.sectionSubText")}</p>
-            <h3 className="font-black md:text-[48px] sm:text-[42px] xs:text-[36px] text-[28px] mt-2 blue-text-gradient">
+            <p className={`${styles.sectionSubText} section-sub-accent`}>{t("contact.sectionSubText")}</p>
+            <h3 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
               {t("contact.sectionHeadText")}
             </h3>
             <p className="text-secondary/90 text-sm mt-3 max-w-md">
@@ -278,7 +278,7 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white/90 hover:border-[#4a77ff]/40 hover:bg-white/[0.08] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white/90 hover:border-accent-blue/40 hover:bg-white/[0.08] transition-colors"
                 >
                   <img src={LinkedinIcon} alt="LinkedIn" className="h-5 w-5" />
                   <span className="text-sm font-medium">{t("contact.openLinkedIn")}</span>
@@ -288,7 +288,7 @@ const Contact = () => {
                   onClick={handleCopyEmail}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white/90 hover:border-[#4a77ff]/40 hover:bg-white/[0.08] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white/90 hover:border-accent-cyan/50 hover:bg-white/[0.08] transition-colors"
                 >
                   <svg className="h-5 w-5 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

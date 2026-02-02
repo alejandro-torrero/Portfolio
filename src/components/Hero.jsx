@@ -73,7 +73,7 @@ const Hero = () => {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#4a77ff]/60 text-[#4a77ff] font-semibold text-sm hover:bg-[#4a77ff]/10 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-accent-cyan/60 text-accent-cyan font-semibold text-sm hover:bg-accent-cyan/10 transition-all duration-300"
             >
               {t("hero.ctaContact")}
             </a>
