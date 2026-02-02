@@ -103,6 +103,7 @@ const en = {
   contact: {
     sectionSubText: "Get in touch",
     sectionHeadText: "Contact",
+    sectionDescription: "Have a project in mind or want to chat? Drop me a message and I'll get back to you.",
     nameLabel: "Your Name",
     emailLabel: "Your email",
     messageLabel: "Your Message",
@@ -113,6 +114,10 @@ const en = {
     sendingButton: "Sending...",
     successMessage: "Thank you. I will get back to you as soon as possible.",
     errorMessage: "Something went wrong. Please try again.",
+    reachDirectly: "Prefer to reach out directly?",
+    openLinkedIn: "LinkedIn",
+    copyEmail: "Copy email",
+    copied: "Copied!",
   },
   footer: {
     name: "Diego Alejandro Torrero Gracia",

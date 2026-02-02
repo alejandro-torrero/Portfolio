@@ -103,6 +103,7 @@ const es = {
   contact: {
     sectionSubText: "Escríbeme",
     sectionHeadText: "Contacto",
+    sectionDescription: "¿Tienes un proyecto en mente o quieres charlar? Escríbeme y te responderé.",
     nameLabel: "Tu nombre",
     emailLabel: "Tu correo",
     messageLabel: "Tu mensaje",
@@ -113,6 +114,10 @@ const es = {
     sendingButton: "Enviando...",
     successMessage: "Gracias. Te responderé lo antes posible.",
     errorMessage: "Algo salió mal. Por favor intenta de nuevo.",
+    reachDirectly: "¿Prefieres contactar directamente?",
+    openLinkedIn: "LinkedIn",
+    copyEmail: "Copiar correo",
+    copied: "¡Copiado!",
   },
   footer: {
     name: "Diego Alejandro Torrero Gracia",
