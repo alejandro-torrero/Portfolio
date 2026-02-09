@@ -5,6 +5,7 @@ import About from "./About";
 import Tech from "./Tech";
 import Experience from "./Experience";
 import Projects from "./Projects";
+import GitHubContributions from "./GitHubContributions";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 
@@ -15,6 +16,7 @@ export {
   Tech,
   Experience,
   Projects,
+  GitHubContributions,
   Feedbacks,
   Contact,
   EarthCanvas,

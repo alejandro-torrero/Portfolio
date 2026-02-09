@@ -4,6 +4,7 @@ const en = {
     work: "Work",
     tech: "Tech",
     projects: "Projects",
+    github: "GitHub",
     contact: "Contact",
   },
   hero: {
@@ -102,6 +103,18 @@ const en = {
           "Automatic single execution code that sends custom emails in order to create an IT ticket. In need to send massive amounts of IT tickets for administrative tasks.",
       },
     ],
+  },
+  githubContributions: {
+    sectionSubText: "Activity",
+    sectionHeadText: "GitHub contributions",
+    description:
+      "Contribution activity across my GitHub accounts. Click any chart to open the profile.",
+    workAccount: "Work",
+    personalAccount: "Personal",
+    openProfile: "Click to open profile on GitHub →",
+    year: "Year",
+    loading: "Loading…",
+    contributionsCount: "{{count}} contributions",
   },
   contact: {
     sectionSubText: "Get in touch",

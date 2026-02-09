@@ -7,6 +7,7 @@ import About from "./About";
 import Experience from "./Experience";
 import Tech from "./Tech";
 import Projects from "./Projects";
+import GitHubContributions from "./GitHubContributions";
 import Contact from "./Contact";
 import { StarsCanvas } from "./canvas";
 import Footer from "./Footer";
@@ -35,6 +36,7 @@ const Home = () => {
       <Experience />
       <Tech />
       <Projects />
+      <GitHubContributions />
       <div className="relative z-0 min-h-[400px]">
         <Contact />
         <div className="absolute inset-0 -z-10 overflow-hidden">

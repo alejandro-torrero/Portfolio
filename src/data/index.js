@@ -3,6 +3,7 @@ import { technologies, techGroups } from "./Technologies";
 import { experiences } from "./WorkExperience";
 import { projects } from "./Projects";
 import { navLinks } from "./NavLinks";
+import { githubAccounts } from "./GitHubContributions";
 
 const testimonials = [
   {
@@ -31,4 +32,4 @@ const testimonials = [
   },
 ];
 
-export { services, technologies, techGroups, experiences, testimonials, projects, navLinks };
+export { services, technologies, techGroups, experiences, testimonials, projects, navLinks, githubAccounts };

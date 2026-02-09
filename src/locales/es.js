@@ -4,6 +4,7 @@ const es = {
     work: "Experiencia",
     tech: "Tecnologías",
     projects: "Proyectos",
+    github: "GitHub",
     contact: "Contacto",
   },
   hero: {
@@ -102,6 +103,18 @@ const es = {
           "Código de ejecución única automático que envía correos personalizados para crear tickets IT. Pensado para enviar grandes cantidades de tickets administrativos.",
       },
     ],
+  },
+  githubContributions: {
+    sectionSubText: "Actividad",
+    sectionHeadText: "Contribuciones en GitHub",
+    description:
+      "Actividad de contribuciones en mis cuentas de GitHub. Haz clic en cualquier gráfica para abrir el perfil.",
+    workAccount: "Trabajo",
+    personalAccount: "Personal",
+    openProfile: "Haz clic para abrir el perfil en GitHub →",
+    year: "Año",
+    loading: "Cargando…",
+    contributionsCount: "{{count}} contribuciones",
   },
   contact: {
     sectionSubText: "Escríbeme",
