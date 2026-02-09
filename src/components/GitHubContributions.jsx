@@ -55,6 +55,26 @@ function getTotalContributions(weeks) {
   return total;
 }
 
+function getMonthLabels(weeks, cols) {
+  const labels = [];
+  let lastMonth = null;
+  for (let col = 0; col < cols; col++) {
+    let cell = null;
+    for (let row = 0; row < weeks.length; row++) {
+      if (weeks[row]?.[col]) {
+        cell = weeks[row][col];
+        break;
+      }
+    }
+    const month = cell?.month;
+    if (month && month !== lastMonth) {
+      labels.push({ col, label: month.substring(0, 3) });
+      lastMonth = month;
+    }
+  }
+  return labels;
+}
+
 function ContributionGrid({ weeks }) {
   if (!weeks || !weeks.length) return null;
   // API returns 7 rows (Sun–Sat), each row has ~53 entries (one per week). So data[row][col].
@@ -62,7 +82,23 @@ function ContributionGrid({ weeks }) {
   const cols = Math.max(0, ...weeks.map((row) => row?.length ?? 0));
   if (cols === 0) return null;
 
-  // Grid output: row-major order (row 0 all cols, then row 1, ...) for CSS grid
+  const monthLabels = getMonthLabels(weeks, cols);
+
+  // Label row: one cell per column, show month abbreviation at first column of each month
+  const labelCells = [];
+  for (let col = 0; col < cols; col++) {
+    const monthInfo = monthLabels.find((m) => m.col === col);
+    labelCells.push(
+      <div
+        key={`label-${col}`}
+        className="flex items-end justify-start pb-0.5 text-[10px] sm:text-xs text-secondary/80 font-medium"
+      >
+        {monthInfo ? monthInfo.label : ""}
+      </div>
+    );
+  }
+
+  // Contribution cells: row-major order
   const cells = [];
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
@@ -86,13 +122,14 @@ function ContributionGrid({ weeks }) {
   return (
     <div className="w-full" style={{ minHeight: "120px" }}>
       <div
-        className="grid w-full gap-[3px]"
+        className="grid w-full gap-x-[3px] gap-y-[2px]"
         style={{
-          gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`,
+          gridTemplateRows: `auto repeat(${rows}, minmax(0, 1fr))`,
           gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-          aspectRatio: `${cols} / ${rows}`,
+          aspectRatio: `${cols} / ${rows + 1}`,
         }}
       >
+        {labelCells}
         {cells}
       </div>
     </div>
