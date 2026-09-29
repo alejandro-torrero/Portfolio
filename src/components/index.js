@@ -6,6 +6,7 @@ import Tech from "./Tech";
 import Experience from "./Experience";
 import Projects from "./Projects";
 import GitHubContributions from "./GitHubContributions";
+import LeetCode from "./LeetCode";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 
@@ -17,6 +18,7 @@ export {
   Experience,
   Projects,
   GitHubContributions,
+  LeetCode,
   Feedbacks,
   Contact,
   EarthCanvas,

@@ -4,6 +4,7 @@ import { experiences } from "./WorkExperience";
 import { projects } from "./Projects";
 import { navLinks } from "./NavLinks";
 import { githubAccounts } from "./GitHubContributions";
+import { leetcodeProfile } from "./LeetCode";
 
 const testimonials = [
   {
@@ -32,4 +33,4 @@ const testimonials = [
   },
 ];
 
-export { services, technologies, techGroups, experiences, testimonials, projects, navLinks, githubAccounts };
+export { services, technologies, techGroups, experiences, testimonials, projects, navLinks, githubAccounts, leetcodeProfile };

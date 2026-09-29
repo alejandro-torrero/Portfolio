@@ -8,6 +8,7 @@ import Experience from "./Experience";
 import Tech from "./Tech";
 import Projects from "./Projects";
 import GitHubContributions from "./GitHubContributions";
+import LeetCode from "./LeetCode";
 import Contact from "./Contact";
 import { StarsCanvas } from "./canvas";
 import Footer from "./Footer";
@@ -37,6 +38,7 @@ const Home = () => {
       <Tech />
       <Projects />
       <GitHubContributions />
+      <LeetCode />
       <div className="relative z-0 min-h-[400px]">
         <Contact />
         <div className="absolute inset-0 -z-10 overflow-hidden">
