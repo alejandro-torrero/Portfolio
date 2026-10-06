@@ -77,6 +77,14 @@ const en = {
     moreButton: "More ...",
     viewProject: "View project",
     viewCode: "View code",
+    pageDescription:
+      "Real-world applications I've built, from BI dashboards to mobile apps and automation tools. Search or filter by technology to find what you're looking for.",
+    searchPlaceholder: "Search projects…",
+    filterAll: "All",
+    resultsCount: "Showing {{count}} of {{total}} projects",
+    noResults: "No projects match your search.",
+    clearFilters: "Clear filters",
+    detailsSoon: "Details coming soon",
     list: [
       {
         name: "Data Dashboard Integration System",

@@ -77,6 +77,14 @@ const es = {
     moreButton: "Más ...",
     viewProject: "Ver proyecto",
     viewCode: "Ver código",
+    pageDescription:
+      "Aplicaciones reales que he desarrollado, desde dashboards de BI hasta apps móviles y herramientas de automatización. Busca o filtra por tecnología para encontrar lo que necesitas.",
+    searchPlaceholder: "Buscar proyectos…",
+    filterAll: "Todos",
+    resultsCount: "Mostrando {{count}} de {{total}} proyectos",
+    noResults: "Ningún proyecto coincide con tu búsqueda.",
+    clearFilters: "Limpiar filtros",
+    detailsSoon: "Detalles próximamente",
     list: [
       {
         name: "Sistema de Integración de Dashboard de Datos",
