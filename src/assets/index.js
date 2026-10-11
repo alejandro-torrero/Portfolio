@@ -49,10 +49,15 @@ import appPresentation from "./projects/bar-code-scanner/BarcodeScannerPr.jpg";
 
 import odDashboard from "./projects/ti-sys/odDashboard.png";
 
+import leetcodeCover from "./projects/leetcode/leetcode.jpg";
+import reflexionCover from "./projects/reflexion/reflexion.jpg";
+import correctiveRagCover from "./projects/corrective-rag/corrective-rag.jpg";
+
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import profilePhoto from "./atorrero.jpg";
+import mobileIcon from "./mobile.svg";
 
 export {
   github,
@@ -75,6 +80,7 @@ export {
   jobit,
   tripguide,
   profilePhoto,
+  mobileIcon,
   VinteIcon,
   assetSAV,
   dashboardSAV,
@@ -90,4 +96,7 @@ export {
   appScanner,
   appPresentation,
   odDashboard,
+  leetcodeCover,
+  reflexionCover,
+  correctiveRagCover,
 };

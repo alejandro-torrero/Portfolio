@@ -1,71 +1,58 @@
-import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { services } from "../data";
-import { fadeIn, textVariant } from "../utils/motion";
-import { SectionWrapper } from "../hoc";
 import { useTranslation } from "react-i18next";
+import { services } from "../data";
+import { fadeIn } from "../utils/motion";
+import { SectionWrapper } from "../hoc";
+import SectionHeader from "./SectionHeader";
 
-const ServiceCard = ({ index, title, icon, icon2 }) => {
-  return (
-    <Tilt className="xs:w-[250px] w-full" options={{ max: 45, scale: 1, speed: 450 }}>
-      <motion.div
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-        className="w-full rounded-[20px] overflow-hidden border border-white/10 hover:border-accent-cyan/50 transition-colors duration-300"
-        style={{
-          backgroundColor: "rgba(255, 255, 255, 0.04)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-        }}
-      >
-        <div className="rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
-          <div className="flex gap-3">
-            <img src={icon} alt="" className="w-16 h-16 object-contain" />
-            {icon2 && (
-              <img src={icon2} alt="" className="w-16 h-16 object-contain" />
-            )}
-          </div>
-          <h3 className="text-white text-[20px] font-bold text-center">
-            {title}
-          </h3>
-        </div>
-      </motion.div>
-    </Tilt>
-  );
-};
+const FocusCard = ({ index, icon, title, description, tags }) => (
+  <motion.div
+    variants={fadeIn("up", "spring", index * 0.12, 0.75)}
+    className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 transition-colors hover:border-accent-blue/40"
+  >
+    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/[0.05] border border-white/10">
+      <img src={icon} alt="" className="w-7 h-7 object-contain" />
+    </div>
+    <h3 className="mt-5 text-white font-semibold text-lg">{title}</h3>
+    <p className="mt-2 text-secondary text-[14px] leading-relaxed flex-1">{description}</p>
+    <div className="mt-5 flex flex-wrap gap-1.5">
+      {tags.map((tag) => (
+        <span
+          key={tag}
+          className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[12px] font-medium text-white/75"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  </motion.div>
+);
 
 const About = () => {
   const { t } = useTranslation();
-  const titlesArray = t("about.services", { returnObjects: true }) ?? [];
-  const safeTitles = Array.isArray(titlesArray) ? titlesArray : [titlesArray];
+  const raw = t("about.services", { returnObjects: true });
+  const localeServices = Array.isArray(raw) ? raw : [];
 
   return (
-    <div>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} section-sub-accent`}>{t("about.sectionSubText")}</p>
-        <h2 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
-          {t("about.sectionHeadText")}
-        </h2>
-      </motion.div>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
-      >
-        {t("about.description")}
-      </motion.p>
+    <>
+      <SectionHeader
+        subText={t("about.sectionSubText")}
+        headText={t("about.sectionHeadText")}
+        description={t("about.description")}
+      />
 
-      <div className="mt-20 flex flex-wrap gap-10 justify-center">
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {services.map((service, index) => (
-          <ServiceCard
+          <FocusCard
             key={service.title}
             index={index}
             {...service}
-            title={safeTitles[index] ?? service.title}
+            title={localeServices[index]?.title ?? service.title}
+            description={localeServices[index]?.description ?? ""}
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

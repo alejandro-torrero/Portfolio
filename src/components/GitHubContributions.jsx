@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { fadeIn, textVariant } from "../utils/motion";
-import { SectionWrapper } from "../hoc";
+import { fadeIn } from "../utils/motion";
 import { useTranslation } from "react-i18next";
 import { githubAccounts } from "../data";
 
@@ -154,7 +152,7 @@ const ContributionCard = ({ username, label, openProfileText, loadingLabel, year
       className="block group"
     >
       <div
-        className="relative rounded-2xl overflow-hidden border border-white/10 p-6 sm:p-8 min-h-[320px] sm:min-h-[360px] transition-all duration-300 hover:border-accent-cyan/50 hover:shadow-lg hover:shadow-accent-cyan/10"
+        className="relative rounded-2xl overflow-hidden border border-white/10 p-5 sm:p-6 transition-all duration-300 hover:border-accent-blue/50 hover:shadow-lg hover:shadow-accent-blue/10"
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.04)",
           backdropFilter: "blur(16px)",
@@ -162,20 +160,20 @@ const ContributionCard = ({ username, label, openProfileText, loadingLabel, year
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         }}
       >
-        <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-gradient-to-b from-accent-cyan/90 via-accent-cyan/60 to-accent-blue/80" aria-hidden />
+        <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-gradient-to-b from-accent-blue via-accent-blue/60 to-accent-blue/10" aria-hidden />
         <div className="pl-5 sm:pl-6">
-          <h3 className="text-lg sm:text-xl font-bold text-white uppercase tracking-widest mb-1 flex items-center gap-2">
-            <span className="text-accent-cyan">@{username}</span>
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-1 flex items-center gap-2">
+            <span className="text-white">@{username}</span>
             {label && (
               <span className="text-secondary font-normal normal-case text-sm sm:text-base hidden sm:inline">
                 — {label}
               </span>
             )}
           </h3>
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-secondary text-sm mb-5">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-secondary text-sm mb-4">
             <span>{year}</span>
             {totalContributions !== null && (
-              <span className="text-accent-cyan/90 font-medium">
+              <span className="text-accent-blue font-medium">
                 {t("githubContributions.contributionsCount", { count: totalContributions.toLocaleString() })}
               </span>
             )}
@@ -189,7 +187,7 @@ const ContributionCard = ({ username, label, openProfileText, loadingLabel, year
             )}
             {!loading && !error && data && <ContributionGrid weeks={data} />}
           </div>
-          <p className="mt-4 text-secondary text-xs sm:text-sm">
+          <p className="mt-3 text-secondary text-xs sm:text-sm group-hover:text-white transition-colors">
             {openProfileText}
           </p>
         </div>
@@ -204,25 +202,7 @@ const GitHubContributions = () => {
 
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} section-sub-accent`}>
-          {t("githubContributions.sectionSubText")}
-        </p>
-        <h2 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
-          {t("githubContributions.sectionHeadText")}
-        </h2>
-      </motion.div>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
-      >
-        {t("githubContributions.description")}
-      </motion.p>
-
-      <motion.div
-        variants={fadeIn("", "", 0.15, 1)}
-        className="mt-8 flex flex-wrap items-center gap-3"
-      >
+      <div className="flex flex-wrap items-center gap-3">
         <span className="text-secondary text-sm font-medium uppercase tracking-wider">
           {t("githubContributions.year")}:
         </span>
@@ -232,9 +212,10 @@ const GitHubContributions = () => {
               key={y}
               type="button"
               onClick={() => setYear(y)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              aria-pressed={year === y}
+              className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 year === y
-                  ? "bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/50"
+                  ? "bg-accent-blue/20 text-white border border-accent-blue/60"
                   : "bg-white/5 text-secondary border border-white/10 hover:border-white/20 hover:text-white"
               }`}
             >
@@ -242,9 +223,9 @@ const GitHubContributions = () => {
             </button>
           ))}
         </div>
-      </motion.div>
+      </div>
 
-      <div className="mt-10 flex flex-col gap-8 lg:gap-10">
+      <div className="mt-6 grid grid-cols-1 gap-5">
         {githubAccounts.map((account, index) => (
           <ContributionCard
             key={`${account.username}-${year}`}
@@ -261,4 +242,4 @@ const GitHubContributions = () => {
   );
 };
 
-export default SectionWrapper("github", GitHubContributions);
+export default GitHubContributions;

@@ -1,27 +1,25 @@
-import {
-  reactjs,
-  nodejs,
-  mongodb,
-  mysql,  
-  computerScience,
-} from "../assets";
+import { reactjs, typescript, mobileIcon, computerScience } from "../assets";
 
+/** Focus areas for the About section. Order must match `about.services` in the locale files. */
 export const services = [
   {
-    title: "Front End Developer",
+    title: "Web apps & dashboards",
     icon: reactjs,
+    tags: ["React", "Node.js", "MUI", "MongoDB", "MySQL"],
   },
   {
-    title: "Backend Developer",
-    icon: nodejs,
+    title: "Voice & AI automation",
+    icon: typescript,
+    tags: ["TypeScript", "SIP", "RPA"],
   },
   {
-    title: "Data base admin",
-    icon: mongodb,
-    icon2: mysql,
+    title: "Mobile apps",
+    icon: mobileIcon,
+    tags: ["React Native", "Expo"],
   },
   {
-    title: "Computer Systems Engineer",
+    title: "Networks & infrastructure",
     icon: computerScience,
+    tags: ["Cisco Meraki", "Fortinet", "Docker", "AWS"],
   },
 ];

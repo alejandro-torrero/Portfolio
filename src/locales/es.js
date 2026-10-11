@@ -4,8 +4,8 @@ const es = {
     work: "Experiencia",
     tech: "Tecnologías",
     projects: "Proyectos",
-    github: "GitHub",
-    leetcode: "LeetCode",
+    discovery: "Descubrimientos",
+    activity: "Actividad",
     contact: "Contacto",
   },
   hero: {
@@ -13,26 +13,64 @@ const es = {
     name: "Alejandro",
     tagline: "Desarrollador Full Stack · Soluciones web y móviles",
     subtitle:
-      "Soy desarrollador de software apasionado por crear soluciones que conectan la tecnología con las necesidades del negocio. Explora mis proyectos y creemos algo con impacto juntos.",
+      "Desarrollo aplicaciones web, dashboards, voicebots y automatizaciones que conectan la tecnología con necesidades reales del negocio, usando React, Node.js y TypeScript.",
     ctaWork: "Ver mi trabajo",
     ctaContact: "Contactar",
+    ctaResume: "Descargar CV",
+    factRoleLabel: "Actualmente en",
+    factRoleValue: "Xira",
+    factYearsLabel: "Años desarrollando",
+    factProjectsLabel: "Proyectos",
+  },
+  certificates: {
+    sectionSubText: "Aprendizaje continuo",
+    sectionHeadText: "Certificados",
+    description: "Cursos que he completado recientemente para profundizar en agentes de IA, algoritmos y Go.",
+    viewCredential: "Ver credencial",
+    hours_one: "{{count}} hora",
+    hours_other: "{{count}} horas",
+    imageAlt: "Certificado de {{name}}",
   },
   about: {
-    sectionSubText: "Introducción",
+    sectionSubText: "Qué hago",
     sectionHeadText: "Resumen",
     description:
-      "Soy Desarrollador de Software Junior especializado en JavaScript, con experiencia en frameworks como React, Node.js y MUI. Tengo habilidades en gestión de bases de datos, incluyendo MySQL y MongoDB, y experiencia en desarrollo backend y creación de APIs REST. Aprendo rápido y resuelvo problemas, colaborando de cerca con clientes y trabajando de forma eficiente en equipo. Me gusta asumir retos que requieren soluciones escalables y fáciles de usar.",
+      "Soy Desarrollador Full Stack e Ingeniero en Sistemas Computacionales especializado en JavaScript y TypeScript. Desarrollo aplicaciones web con React, Node.js y MUI, diseño bases de datos en MySQL y MongoDB, y actualmente desarrollo voicebots y automatizaciones en Xira. Aprendo rápido, trabajo de cerca con clientes y disfruto los retos que requieren soluciones escalables y fáciles de usar.",
     services: [
-      "Desarrollador Front End",
-      "Desarrollador Backend",
-      "Administrador de Bases de Datos",
-      "Ingeniero en Sistemas Computacionales",
+      {
+        title: "Apps web y dashboards",
+        description: "Aplicaciones web full stack y dashboards de BI que reúnen APIs de terceros y datos manuales en un solo lugar.",
+      },
+      {
+        title: "Voz y automatización con IA",
+        description: "Voicebots conectados a carriers vía SIP, integraciones de IA y workers RPA para flujos complejos.",
+      },
+      {
+        title: "Apps móviles",
+        description: "Apps multiplataforma con React Native, como un escáner de códigos de barras que agiliza la captura de datos.",
+      },
+      {
+        title: "Redes e infraestructura",
+        description: "Experiencia administrando redes de oficinas a nivel nacional, firewalls, VPNs y SD-WAN.",
+      },
     ],
   },
   work: {
     sectionSubText: "Dónde he trabajado",
     sectionHeadText: "Experiencia laboral",
+    current: "Actual",
     experiences: [
+      {
+        title: "Desarrollador de Software",
+        company_name: "Xira",
+        date: "Nov 2024 - Hoy",
+        points: [
+          "Trabajo principalmente en proyectos con JavaScript y TypeScript como wrappers de IA.",
+          "Desarrollo voicebots con conexión SIP integrada con carriers.",
+          "Desarrollo RPAs (Automatización Robótica de Procesos) para automatización de flujos.",
+          "Uso programación concurrente para construir workers que manejan flujos de alta complejidad.",
+        ],
+      },
       {
         title: "Auxiliar de Soporte IT",
         company_name: "Inmobiliaria Vinte",
@@ -45,26 +83,16 @@ const es = {
           "Desarrollo soluciones técnicas con un profundo entendimiento de los fundamentos de programación y arquitectura de sistemas.",
         ],
       },
-      {
-        title: "Desarrollador de Software",
-        company_name: "Xira",
-        date: "Nov 2024 - Hoy",
-        points: [
-          "Trabajo principalmente en proyectos con JavaScript y TypeScript como wrappers de IA.",
-          "Desarrollo voicebots con conexión SIP integrada con carriers.",
-          "Desarrollo RPAs (Automatización Robótica de Procesos) para automatización de flujos.",
-          "Uso programación concurrente para construir workers que manejan flujos de alta complejidad.",
-        ],
-      },
     ],
   },
   tech: {
     sectionSubText: "Habilidades",
     sectionHeadText: "Tecnologías y frameworks",
-    description:
-      "Tecnologías, frameworks y librerías que he usado y con las que tengo experiencia. La mayoría con nivel profesional o superior.",
-    groupFrontend: "Frontend",
-    groupBackend: "Backend y herramientas",
+    description: "Los lenguajes, frameworks y herramientas que uso para construir y publicar.",
+    groupLanguages: "Lenguajes",
+    groupFrontend: "Frontend y móvil",
+    groupBackend: "Backend y datos",
+    groupTools: "DevOps y herramientas",
   },
   projects: {
     sectionSubText: "Mi trabajo",
@@ -72,9 +100,10 @@ const es = {
     pageTitle: "Todos los proyectos",
     backToHome: "Volver al inicio",
     backToProjects: "Volver a proyectos",
+    featuredHeadText: "Proyectos destacados",
     description:
-      "Los siguientes proyectos muestran mis habilidades y experiencia a través de aplicaciones reales. Cada proyecto incluye una breve descripción y enlaces a repositorios y demos. Demuestran mi capacidad para afrontar retos complejos, trabajar con diversas tecnologías y gestionar proyectos de forma eficiente.",
-    moreButton: "Más ...",
+      "Una selección de aplicaciones reales que he desarrollado, desde dashboards de BI hasta apps móviles.",
+    viewAll: "Ver los {{count}} proyectos",
     viewProject: "Ver proyecto",
     viewCode: "Ver código",
     pageDescription:
@@ -85,57 +114,58 @@ const es = {
     noResults: "Ningún proyecto coincide con tu búsqueda.",
     clearFilters: "Limpiar filtros",
     detailsSoon: "Detalles próximamente",
-    list: [
-      {
-        name: "Sistema de Integración de Dashboard de Datos",
-        description:
-          "Plataforma BI que integra APIs de terceros y entrada de datos semi-manual. Centraliza métricas clave sobre estado de agentes y usuarios.",
-      },
-      {
-        name: "App Escáner de Códigos de Barras",
-        description:
-          "Escáner de códigos de barras multi-formato con React Native que agiliza la entrada de datos escaneando códigos y enviándolos por correo. Incluye copiar-pegar rápido para simplificar el pago de facturas.",
-      },
-      {
-        name: "Formulario Splash Page",
-        description:
-          "Página splash dinámica y adaptable para redes Wi-Fi, que recopila información del usuario mediante un formulario y parámetros URL de Cisco Meraki.",
-      },
-      {
-        name: "Sistema de Gestión de Activos",
-        description:
-          "Sistema personalizado de gestión de activos para mejor seguimiento y administración, integrando responsabilidades, documentación y valor para agilizar la colaboración entre finanzas e IT.",
-      },
-      {
-        name: "Ticket Sender",
-        description:
-          "Código de ejecución única automático que envía correos personalizados para crear tickets IT. Pensado para enviar grandes cantidades de tickets administrativos.",
-      },
-    ],
+    published: "Publicado",
+    lastUpdated: "Actualizado",
+  },
+  discovery: {
+    sectionSubText: "Explorando en abierto",
+    sectionHeadText: "Descubrimientos",
+    pageTitle: "Descubrimientos",
+    backToHome: "Volver al inicio",
+    backToDiscoveries: "Volver a descubrimientos",
+    featuredHeadText: "Descubrimientos",
+    description:
+      "Notas al probar y aprender de proyectos open source — con crédito a quienes los crearon.",
+    viewAll: "Ver los {{count}} descubrimientos",
+    viewDiscovery: "Leer descubrimiento",
+    originalProject: "Proyecto original",
+    creditsBy: "Por",
+    creditsHeading: "Créditos",
+    pageDescription:
+      "Experiencias al ejecutar herramientas y proyectos open source que me resultaron útiles. Cada nota acredita a los creadores originales.",
+    searchPlaceholder: "Buscar descubrimientos…",
+    filterAll: "Todos",
+    resultsCount: "Mostrando {{count}} de {{total}} descubrimientos",
+    noResults: "Ningún descubrimiento coincide con tu búsqueda.",
+    clearFilters: "Limpiar filtros",
+    detailsSoon: "Detalles próximamente",
+    emptyFeatured:
+      "Pronto habrá descubrimientos — exploraciones de proyectos open source con crédito a sus creadores.",
+    emptyList: "Aún no hay descubrimientos publicados. Vuelve pronto.",
+    published: "Publicado",
+    lastUpdated: "Actualizado",
+  },
+  activity: {
+    sectionSubText: "Actividad",
+    sectionHeadText: "Actividad de código",
+    description: "Estadísticas en vivo de mis cuentas de GitHub y mi práctica en LeetCode.",
+    tabGithub: "GitHub",
+    tabLeetcode: "LeetCode",
   },
   githubContributions: {
-    sectionSubText: "Actividad",
-    sectionHeadText: "Contribuciones en GitHub",
-    description:
-      "Actividad de contribuciones en mis cuentas de GitHub. Haz clic en cualquier gráfica para abrir el perfil.",
     workAccount: "Trabajo",
     personalAccount: "Personal",
-    openProfile: "Haz clic para abrir el perfil en GitHub →",
+    openProfile: "Abrir perfil en GitHub →",
     year: "Año",
     loading: "Cargando…",
     contributionsCount: "{{count}} contribuciones",
   },
   leetcode: {
-    sectionSubText: "Resolución de problemas",
-    sectionHeadText: "LeetCode",
-    description:
-      "Práctica de algoritmos y estructuras de datos. Estas estadísticas se obtienen en vivo desde mi perfil público de LeetCode.",
     solved: "Resueltos",
     ofTotal: "de {{total}}",
     easy: "Fácil",
     medium: "Medio",
     hard: "Difícil",
-    ranking: "Ranking global",
     acceptance: "Tasa de aceptación",
     activeDays: "Días activos",
     submissions: "Envíos",
@@ -163,7 +193,7 @@ const es = {
     successMessage: "Gracias. Te responderé lo antes posible.",
     errorMessage: "Algo salió mal. Por favor intenta de nuevo.",
     reachDirectly: "¿Prefieres contactar directamente?",
-    openLinkedIn: "LinkedIn",
+    reachDirectlyDescription: "Escríbeme por correo o conecta conmigo en LinkedIn y GitHub.",
     copyEmail: "Copiar correo",
     copied: "¡Copiado!",
   },

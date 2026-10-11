@@ -5,113 +5,17 @@ import { useTranslation } from "react-i18next";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { projects } from "../data";
-import { github } from "../assets";
 import { styles } from "../styles";
+import ProjectCard, { useLocalizedProjects } from "./ProjectCard";
 
 const normalize = (value) => value.trim().toLowerCase();
-
-const TagPill = ({ tag }) => (
-  <span
-    className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.04] border border-white/10 px-2.5 py-1 text-[12px] font-medium text-white/80"
-  >
-    <span
-      className="w-1.5 h-1.5 rounded-full"
-      style={{ backgroundColor: tag.color.trim() }}
-    />
-    {tag.name}
-  </span>
-);
-
-const ProjectGridCard = ({ name, description, tags, image, source_code_link, link }) => {
-  const { t } = useTranslation();
-  const hasLink = Boolean(link);
-  const hasCode = source_code_link != null;
-
-  const body = (
-    <>
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <img
-          src={image}
-          alt={name}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
-        {!hasLink && (
-          <span className="absolute top-3 left-3 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide text-white/70">
-            {t("projects.detailsSoon")}
-          </span>
-        )}
-      </div>
-
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-white font-semibold text-lg leading-snug group-hover:text-accent-cyan transition-colors">
-          {name}
-        </h3>
-        <p className="mt-2 text-secondary text-[14px] leading-relaxed line-clamp-3">
-          {description}
-        </p>
-
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {tags.map((tag) => (
-            <TagPill key={`${name}-${tag.name}`} tag={tag} />
-          ))}
-        </div>
-
-        <div className="mt-auto pt-5 flex items-center justify-between gap-3">
-          {hasLink ? (
-            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-blue group-hover:gap-2.5 transition-all">
-              {t("projects.viewProject")}
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-          ) : (
-            <span />
-          )}
-          {hasCode && (
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(source_code_link, "_blank", "noopener,noreferrer");
-              }}
-              className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              <img src={github} alt="" className="w-4 h-4" />
-              {t("projects.viewCode")}
-            </button>
-          )}
-        </div>
-      </div>
-    </>
-  );
-
-  const cardClass =
-    "group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(74,119,255,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue";
-
-  return hasLink ? (
-    <Link to={link} className={cardClass}>
-      {body}
-    </Link>
-  ) : (
-    <div className={cardClass}>{body}</div>
-  );
-};
 
 const ProjectList = () => {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState(null);
 
-  const raw = t("projects.list", { returnObjects: true });
-  const localeList = Array.isArray(raw) ? raw : raw ? [raw] : [];
-  const projectsWithLocale = projects.map((p, i) => ({
-    ...p,
-    name: localeList[i]?.name ?? p.name,
-    description: localeList[i]?.description ?? p.description,
-  }));
+  const projectsWithLocale = useLocalizedProjects();
 
   const tagCounts = useMemo(() => {
     const counts = new Map();
@@ -148,7 +52,7 @@ const ProjectList = () => {
     <div className="relative z-0 bg-primary min-h-screen flex flex-col">
       <Navbar />
 
-      <main className={`${styles.padding} pt-28 pb-16 max-w-7xl mx-auto w-full flex-1`}>
+      <main className={`${styles.paddingX} pt-28 sm:pt-32 pb-16 max-w-7xl mx-auto w-full flex-1`}>
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -235,7 +139,7 @@ const ProjectList = () => {
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <ProjectGridCard {...project} />
+                  <ProjectCard {...project} />
                 </motion.div>
               ))}
             </AnimatePresence>

@@ -4,35 +4,73 @@ const en = {
     work: "Work",
     tech: "Tech",
     projects: "Projects",
-    github: "GitHub",
-    leetcode: "LeetCode",
+    discovery: "Discovery",
+    activity: "Activity",
     contact: "Contact",
   },
   hero: {
     greeting: "Hi, I'm",
     name: "Alejandro",
-    tagline: "Full Stack Developer · Web & mobile solutions",
+    tagline: "Full Stack Developer · Building AI-integrated solutions",
     subtitle:
-      "I'm a software developer passionate about building solutions that bridge technology and business needs. Explore my projects and let's create something impactful together.",
+      "I'm a Full Stack Developer, passionate abuut programming with experience building AI-based solutions that solve real-world problems.",
     ctaWork: "View my work",
     ctaContact: "Get in touch",
+    ctaResume: "Download CV",
+    factRoleLabel: "Currently at",
+    factRoleValue: "Xira",
+    factYearsLabel: "Years building",
+    factProjectsLabel: "Projects",
+  },
+  certificates: {
+    sectionSubText: "Always learning",
+    sectionHeadText: "Certificates",
+    description: "Courses I've completed recently to go deeper into AI agents, algorithms and Go.",
+    viewCredential: "View credential",
+    hours_one: "{{count}} hour",
+    hours_other: "{{count}} hours",
+    imageAlt: "Certificate for {{name}}",
   },
   about: {
-    sectionSubText: "Introduction",
+    sectionSubText: "What I do",
     sectionHeadText: "Overview",
     description:
-      "I'm a Junior Software Developer specializing in JavaScript, with expertise in frameworks like React, Node.js, and MUI. I'm skilled in database management, including MySQL and MongoDB, and have experience in backend development and creating REST APIs. I'm a fast learner and problem-solver, collaborating closely with clients and working efficiently within teams. I thrive on tackling challenges that require scalable and user-friendly tech solutions.",
+      "I'm a Full Stack Developer and Computer Systems Engineer specializing in JavaScript and TypeScript. I build web apps with React, Node.js and MUI, design databases in MySQL and MongoDB, and currently develop voicebots and automation at Xira. I learn fast, work closely with clients, and enjoy problems that need scalable, user-friendly solutions.",
     services: [
-      "Front End Developer",
-      "Backend Developer",
-      "Database Admin",
-      "Computer Systems Engineer",
+      {
+        title: "Web apps & dashboards",
+        description: "Full-stack web apps and BI dashboards that bring third-party APIs and manual data into one place.",
+      },
+      {
+        title: "Voice & AI automation",
+        description: "Voicebots connected to carriers over SIP, AI integrations, and RPA workers for complex workflows.",
+      },
+      {
+        title: "Mobile apps",
+        description: "Cross-platform apps with React Native, like a multi-format barcode scanner that speeds up data entry.",
+      },
+      {
+        title: "Networks & infrastructure",
+        description: "Hands-on experience running national office networks, firewalls, VPNs and SD-WAN.",
+      },
     ],
   },
   work: {
     sectionSubText: "Where I've worked",
     sectionHeadText: "Work Experience",
+    current: "Current",
     experiences: [
+      {
+        title: "Software Developer",
+        company_name: "Xira",
+        date: "Nov 2024 - Today",
+        points: [
+          "Work primarily on JavaScript and TypeScript projects as AI wrappers.",
+          "Build voicebots with SIP connectivity integrated with carriers.",
+          "Develop RPAs (Robotic Process Automation) for workflow automation.",
+          "Use concurrency programming to build workers that handle highly complex flows.",
+        ],
+      },
       {
         title: "IT Support Auxiliary",
         company_name: "Inmobiliaria Vinte",
@@ -45,26 +83,16 @@ const en = {
           "Develop technical solutions with a deep understanding of programming fundamentals and system architecture.",
         ],
       },
-      {
-        title: "Software Developer",
-        company_name: "Xira",
-        date: "Nov 2024 - Today",
-        points: [
-          "Work primarily on JavaScript and TypeScript projects as AI wrappers.",
-          "Build voicebots with SIP connectivity integrated with carriers.",
-          "Develop RPAs (Robotic Process Automation) for workflow automation.",
-          "Use concurrency programming to build workers that handle highly complex flows.",
-        ],
-      },
     ],
   },
   tech: {
     sectionSubText: "Skills",
     sectionHeadText: "Tech and frameworks",
-    description:
-      "Tech, frameworks and libraries I've used and have experience with. Most of them with professional proficiency or above.",
-    groupFrontend: "Frontend",
-    groupBackend: "Backend & tools",
+    description: "The languages, frameworks and tools I use to build and ship.",
+    groupLanguages: "Languages",
+    groupFrontend: "Frontend & mobile",
+    groupBackend: "Backend & data",
+    groupTools: "DevOps & tools",
   },
   projects: {
     sectionSubText: "My work",
@@ -72,9 +100,10 @@ const en = {
     pageTitle: "All Projects",
     backToHome: "Back to home",
     backToProjects: "Back to projects",
+    featuredHeadText: "Featured projects",
     description:
-      "The following projects highlight my skills and experience through real-world applications. Each project includes a brief description, along with links to the code repositories and live demos. These showcase my ability to tackle complex challenges, work across various technologies, and manage projects efficiently.",
-    moreButton: "More ...",
+      "A selection of real-world applications I've built, from BI dashboards to mobile apps.",
+    viewAll: "View all {{count}} projects",
     viewProject: "View project",
     viewCode: "View code",
     pageDescription:
@@ -85,57 +114,57 @@ const en = {
     noResults: "No projects match your search.",
     clearFilters: "Clear filters",
     detailsSoon: "Details coming soon",
-    list: [
-      {
-        name: "Data Dashboard Integration System",
-        description:
-          "BI platform integrating third-party APIs and semi-manual data input. Centralizing key metrics on agent and user statuses.",
-      },
-      {
-        name: "Barcode Scanner App",
-        description:
-          "Multi-format barcode scanner using React Native, streamlining data entry by scanning codes and sending them via email. Enabled quick copy-paste functionality to simplify the invoice payment process.",
-      },
-      {
-        name: "Splash Page Form",
-        description:
-          "Dynamic and adaptable splash page for Wi-Fi networks, collecting user information through a form and Cisco Meraki's URL parameters.",
-      },
-      {
-        name: "Asset Management System",
-        description:
-          "Custom Asset Management System for improved asset tracking and management, integrating asset responsibilities, documentation, and value tracking to streamline collaboration between finance and IT departments.",
-      },
-      {
-        name: "Ticket Sender",
-        description:
-          "Automatic single execution code that sends custom emails in order to create an IT ticket. In need to send massive amounts of IT tickets for administrative tasks.",
-      },
-    ],
+    published: "Published",
+    lastUpdated: "Updated",
+  },
+  discovery: {
+    sectionSubText: "Exploring in the open",
+    sectionHeadText: "Discovery",
+    pageTitle: "Discoveries",
+    backToHome: "Back to home",
+    backToDiscoveries: "Back to discoveries",
+    featuredHeadText: "Discoveries",
+    description:
+      "Notes from running and learning from open-source projects — with credit to the people who built them.",
+    viewAll: "View all {{count}} discoveries",
+    viewDiscovery: "Read discovery",
+    originalProject: "Original project",
+    creditsBy: "By",
+    creditsHeading: "Credits",
+    pageDescription:
+      "Experiences running open-source tools and projects I found useful. Each write-up credits the original creators.",
+    searchPlaceholder: "Search discoveries…",
+    filterAll: "All",
+    resultsCount: "Showing {{count}} of {{total}} discoveries",
+    noResults: "No discoveries match your search.",
+    clearFilters: "Clear filters",
+    detailsSoon: "Details coming soon",
+    emptyFeatured: "New discoveries coming soon — explorations of open-source projects with credit to their creators.",
+    emptyList: "No discoveries published yet. Check back soon.",
+    published: "Published",
+    lastUpdated: "Updated",
+  },
+  activity: {
+    sectionSubText: "Activity",
+    sectionHeadText: "Coding activity",
+    description: "Live stats from my GitHub accounts and LeetCode practice.",
+    tabGithub: "GitHub",
+    tabLeetcode: "LeetCode",
   },
   githubContributions: {
-    sectionSubText: "Activity",
-    sectionHeadText: "GitHub contributions",
-    description:
-      "Contribution activity across my GitHub accounts. Click any chart to open the profile.",
     workAccount: "Work",
     personalAccount: "Personal",
-    openProfile: "Click to open profile on GitHub →",
+    openProfile: "Open profile on GitHub →",
     year: "Year",
     loading: "Loading…",
     contributionsCount: "{{count}} contributions",
   },
   leetcode: {
-    sectionSubText: "Problem solving",
-    sectionHeadText: "LeetCode",
-    description:
-      "Algorithm and data-structure practice. These stats are pulled live from my public LeetCode profile.",
     solved: "Solved",
     ofTotal: "of {{total}}",
     easy: "Easy",
     medium: "Medium",
     hard: "Hard",
-    ranking: "Global ranking",
     acceptance: "Acceptance rate",
     activeDays: "Active days",
     submissions: "Submissions",
@@ -163,7 +192,7 @@ const en = {
     successMessage: "Thank you. I will get back to you as soon as possible.",
     errorMessage: "Something went wrong. Please try again.",
     reachDirectly: "Prefer to reach out directly?",
-    openLinkedIn: "LinkedIn",
+    reachDirectlyDescription: "Email me or connect on LinkedIn and GitHub.",
     copyEmail: "Copy email",
     copied: "Copied!",
   },

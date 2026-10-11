@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { fadeIn, textVariant } from "../utils/motion";
-import { SectionWrapper } from "../hoc";
+import { fadeIn } from "../utils/motion";
 import { useTranslation } from "react-i18next";
 import { leetcodeProfile } from "../data";
 
@@ -431,11 +429,7 @@ const LeetCodeCard = ({ username }) => {
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3">
-            <StatTile
-              label={t("leetcode.ranking")}
-              value={data.ranking ? `#${data.ranking.toLocaleString()}` : null}
-            />
+          <div className="mt-8 grid grid-cols-3 gap-3">
             <StatTile
               label={t("leetcode.acceptance")}
               value={
@@ -458,7 +452,7 @@ const LeetCodeCard = ({ username }) => {
             className="mt-8 block group"
           >
             <div
-              className="relative rounded-2xl overflow-hidden border border-white/10 p-6 sm:p-8 transition-all duration-300 hover:border-accent-cyan/50 hover:shadow-lg hover:shadow-accent-cyan/10"
+              className="relative rounded-2xl overflow-hidden border border-white/10 p-5 sm:p-6 transition-all duration-300 hover:border-accent-blue/50 hover:shadow-lg hover:shadow-accent-blue/10"
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.04)",
                 backdropFilter: "blur(16px)",
@@ -467,17 +461,17 @@ const LeetCodeCard = ({ username }) => {
               }}
             >
               <div
-                className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-gradient-to-b from-accent-cyan/90 via-accent-cyan/60 to-accent-blue/80"
+                className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl bg-gradient-to-b from-accent-blue via-accent-blue/60 to-accent-blue/10"
                 aria-hidden
               />
               <div className="pl-5 sm:pl-6">
-                <h3 className="text-lg sm:text-xl font-bold text-white uppercase tracking-widest mb-1">
-                  <span className="text-accent-cyan">@{username}</span>
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
+                  <span className="text-white">@{username}</span>
                 </h3>
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-secondary text-sm mb-5">
                   <span>{t("leetcode.heatmapTitle")}</span>
                   {activeDays !== null && (
-                    <span className="text-accent-cyan/90 font-medium">
+                    <span className="text-accent-blue font-medium">
                       {activeDays.toLocaleString()} {t("leetcode.activeDays").toLowerCase()}
                     </span>
                   )}
@@ -485,7 +479,7 @@ const LeetCodeCard = ({ username }) => {
                 <div className="rounded-xl overflow-hidden bg-[#0d1117] border border-white/5 p-4 min-h-[120px] flex items-center justify-center">
                   <SubmissionHeatmap calendar={data.calendar} />
                 </div>
-                <p className="mt-4 text-secondary text-xs sm:text-sm">
+                <p className="mt-3 text-secondary text-xs sm:text-sm group-hover:text-white transition-colors">
                   {t("leetcode.openProfile")}
                 </p>
               </div>
@@ -499,31 +493,6 @@ const LeetCodeCard = ({ username }) => {
   );
 };
 
-const LeetCode = () => {
-  const { t } = useTranslation();
+const LeetCode = () => <LeetCodeCard username={leetcodeProfile.username} />;
 
-  return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} section-sub-accent`}>
-          {t("leetcode.sectionSubText")}
-        </p>
-        <h2 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
-          {t("leetcode.sectionHeadText")}
-        </h2>
-      </motion.div>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
-      >
-        {t("leetcode.description")}
-      </motion.p>
-
-      <div className="mt-10">
-        <LeetCodeCard username={leetcodeProfile.username} />
-      </div>
-    </>
-  );
-};
-
-export default SectionWrapper("leetcode", LeetCode);
+export default LeetCode;

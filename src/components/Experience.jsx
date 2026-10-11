@@ -1,63 +1,82 @@
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
-import "react-vertical-timeline-component/style.min.css";
-import { SectionWrapper } from "../hoc";
-import { styles } from "../styles";
-import { textVariant } from "../utils/motion";
-import { experiences } from "../data";
 import { useTranslation } from "react-i18next";
+import { SectionWrapper } from "../hoc";
+import { fadeIn } from "../utils/motion";
+import { experiences } from "../data";
+import SectionHeader from "./SectionHeader";
 
-const ExperienceCard = ({ experience, localeContent }) => {
+const ExperienceCard = ({ experience, localeContent, index }) => {
+  const { t } = useTranslation();
+  const title = localeContent?.title ?? experience.title;
+  const company = localeContent?.company_name ?? experience.company_name;
+  const points = localeContent?.points ?? experience.points;
+
   return (
-    <VerticalTimelineElement
-      contentStyle={{
-        background: "rgba(255, 255, 255, 0.04)",
-        color: "#fff",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        border: "1px solid rgba(139, 92, 246, 0.2)",
-        borderRadius: "16px",
-        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-      }}
-      contentArrowStyle={{ borderRight: "7px solid rgba(139, 92, 246, 0.4)" }}
-      iconStyle={{ backgroundColor: experience.iconBg }}
-      icon={
-        <div className="w-full h-full flex items-center justify-center">
-          <img
-            src={experience.icon}
-            alt={localeContent?.company_name ?? experience.company_name}
-            className="w-[60%] h-[60%] object-contain"
-          />
-        </div>
-      }
-      iconOnClick={() => {
-        window.open(experience.companyLink, "_blank");
-      }}
-      iconClassName="hover:cursor-pointer"
-    >
-      <div>
-        <h3 className="font-bold text-white text-[24px]">
-          {localeContent?.title ?? experience.title}
-        </h3>
-        <p className="text-secondary">
-          {localeContent?.company_name ?? experience.company_name}
-        </p>
-        <p className="text-secondary/80 text-sm">{localeContent?.date}</p>
-        <ul className="mt-5 list-disc ml-5 space-y-2">
-          {(localeContent?.points ?? experience.points).map((item, index) => (
-            <li
-              key={index}
-              className="text-white/90 text-[14px] pl-1 tracking-wider"
+    <motion.li variants={fadeIn("up", "spring", index * 0.15, 0.75)} className="relative pl-10 sm:pl-14">
+      <span
+        className={`absolute left-[7px] sm:left-[15px] top-8 w-[18px] h-[18px] rounded-full border-4 border-primary ${
+          experience.current ? "bg-accent-blue shadow-[0_0_16px_rgba(74,119,255,0.7)]" : "bg-white/30"
+        }`}
+        aria-hidden
+      />
+      <article className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 sm:p-7 transition-colors hover:border-white/20">
+        <header className="flex flex-wrap items-start gap-4">
+          <a
+            href={experience.companyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center border border-white/10"
+            style={{ backgroundColor: experience.iconBg }}
+            aria-label={company}
+          >
+            <img src={experience.icon} alt="" className="w-[70%] h-[70%] object-contain" />
+          </a>
+          <div className="flex-1 min-w-0">
+            <h3 className="text-white font-semibold text-xl leading-snug">{title}</h3>
+            <a
+              href={experience.companyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary hover:text-white text-sm transition-colors"
             >
-              {item}
+              {company}
+            </a>
+          </div>
+          <div className="flex items-center gap-2">
+            {experience.current && (
+              <span className="rounded-full bg-accent-blue/15 border border-accent-blue/40 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent-blue">
+                {t("work.current")}
+              </span>
+            )}
+            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-secondary whitespace-nowrap">
+              {localeContent?.date ?? experience.date}
+            </span>
+          </div>
+        </header>
+
+        <ul className="mt-5 space-y-2">
+          {points.map((point, i) => (
+            <li key={i} className="flex gap-3 text-[14px] leading-relaxed text-white/85">
+              <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-accent-blue/70" aria-hidden />
+              {point}
             </li>
           ))}
         </ul>
-      </div>
-    </VerticalTimelineElement>
+
+        {experience.tags?.length > 0 && (
+          <div className="mt-5 flex flex-wrap gap-1.5">
+            {experience.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[12px] font-medium text-white/75"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </article>
+    </motion.li>
   );
 };
 
@@ -68,24 +87,22 @@ const Experience = () => {
 
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} section-sub-accent`}>{t("work.sectionSubText")}</p>
-        <h2 className={`${styles.sectionHeadTextGradient} blue-text-gradient mt-2`}>
-          {t("work.sectionHeadText")}
-        </h2>
-      </motion.div>
+      <SectionHeader subText={t("work.sectionSubText")} headText={t("work.sectionHeadText")} />
 
-      <div className="mt-20 flex flex-col">
-        <VerticalTimeline lineColor="rgba(139, 92, 246, 0.4)">
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={experience.company_name + index}
-              experience={experience}
-              localeContent={localeExperiences[index]}
-            />
-          ))}
-        </VerticalTimeline>
-      </div>
+      <ol className="relative mt-12 max-w-4xl flex flex-col gap-6">
+        <span
+          className="absolute left-[15px] sm:left-[23px] top-4 bottom-4 w-px bg-gradient-to-b from-accent-blue via-white/15 to-transparent"
+          aria-hidden
+        />
+        {experiences.map((experience, index) => (
+          <ExperienceCard
+            key={experience.company_name}
+            index={index}
+            experience={experience}
+            localeContent={localeExperiences[index]}
+          />
+        ))}
+      </ol>
     </>
   );
 };

@@ -2,9 +2,12 @@ import { services } from "./Services.jsx";
 import { technologies, techGroups } from "./Technologies";
 import { experiences } from "./WorkExperience";
 import { projects } from "./Projects";
+import { discoveries } from "./Discoveries";
 import { navLinks } from "./NavLinks";
 import { githubAccounts } from "./GitHubContributions";
 import { leetcodeProfile } from "./LeetCode";
+import { profile } from "./Profile";
+import { certificates } from "./Certificates";
 
 const testimonials = [
   {
@@ -33,4 +36,4 @@ const testimonials = [
   },
 ];
 
-export { services, technologies, techGroups, experiences, testimonials, projects, navLinks, githubAccounts, leetcodeProfile };
+export { services, technologies, techGroups, experiences, testimonials, projects, discoveries, navLinks, githubAccounts, leetcodeProfile, profile, certificates };

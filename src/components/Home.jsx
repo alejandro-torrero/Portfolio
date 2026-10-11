@@ -5,21 +5,24 @@ import ScrollProgress from "./ScrollProgress";
 import Hero from "./Hero";
 import About from "./About";
 import Experience from "./Experience";
+import Certificates from "./Certificates";
 import Tech from "./Tech";
 import Projects from "./Projects";
-import GitHubContributions from "./GitHubContributions";
-import LeetCode from "./LeetCode";
+import Discovery from "./Discovery";
+import Activity from "./Activity";
 import Contact from "./Contact";
-import { StarsCanvas } from "./canvas";
+import { NetworkCanvas } from "./canvas";
 import Footer from "./Footer";
+
+const LEGACY_HASHES = { github: "activity", leetcode: "activity" };
 
 const Home = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (pathname !== "/" || !hash) return;
-    const id = hash.replace("#", "");
-    const el = document.getElementById(id);
+    const raw = hash.replace("#", "");
+    const el = document.getElementById(LEGACY_HASHES[raw] ?? raw);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -33,16 +36,17 @@ const Home = () => {
         <Hero />
         <div className="bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#000322] to-transparent pointer-events-none" />
       </div>
-      <About />
-      <Experience />
-      <Tech />
       <Projects />
-      <GitHubContributions />
-      <LeetCode />
+      <Experience />
+      <Certificates />
+      <About />
+      <Tech />
+      <Activity />
+      <Discovery />
       <div className="relative z-0 min-h-[400px]">
         <Contact />
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <StarsCanvas />
+          <NetworkCanvas />
         </div>
       </div>
       <Footer />
