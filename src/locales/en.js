@@ -59,31 +59,11 @@ const en = {
     sectionSubText: "Where I've worked",
     sectionHeadText: "Work Experience",
     current: "Current",
-    experiences: [
-      {
-        title: "Software Developer",
-        company_name: "Xira",
-        date: "Nov 2024 - Today",
-        points: [
-          "Work primarily on JavaScript and TypeScript projects as AI wrappers.",
-          "Build voicebots with SIP connectivity integrated with carriers.",
-          "Develop RPAs (Robotic Process Automation) for workflow automation.",
-          "Use concurrency programming to build workers that handle highly complex flows.",
-        ],
-      },
-      {
-        title: "IT Support Auxiliary",
-        company_name: "Inmobiliaria Vinte",
-        date: "May 2023 - Nov 2024",
-        points: [
-          "Administered national office networks using the Cisco Meraki web platform and directly managed network devices.",
-          "Managed and configured Fortinet firewalls at a national level, maintaining VPNs, routing, security, and SD-WAN functionality.",
-          "Developed multiple programming projects to optimize processes, leveraging MVC architecture, VBA macros in Excel, and database design and management.",
-          "Utilized console APIs to generate custom reports and support IT administration tasks.",
-          "Develop technical solutions with a deep understanding of programming fundamentals and system architecture.",
-        ],
-      },
-    ],
+    today: "Today",
+    durationYears_one: "{{count}} yr",
+    durationYears_other: "{{count}} yrs",
+    durationMonths_one: "{{count}} mo",
+    durationMonths_other: "{{count}} mos",
   },
   tech: {
     sectionSubText: "Skills",

@@ -5,11 +5,53 @@ import { fadeIn } from "../utils/motion";
 import { experiences } from "../data";
 import SectionHeader from "./SectionHeader";
 
-const ExperienceCard = ({ experience, localeContent, index }) => {
-  const { t } = useTranslation();
-  const title = localeContent?.title ?? experience.title;
-  const company = localeContent?.company_name ?? experience.company_name;
-  const points = localeContent?.points ?? experience.points;
+const localized = (value, lang) =>
+  typeof value === "object" && value != null ? value[lang] ?? value.en ?? "" : value ?? "";
+
+/** Parse YYYY-MM-DD as a local calendar date (avoids UTC off-by-one). */
+const parseLocalDate = (iso) => {
+  if (!iso) return null;
+  const [y, m, d] = iso.split("-").map(Number);
+  if (!y || !m) return null;
+  return new Date(y, m - 1, d || 1);
+};
+
+const formatMonthYear = (date, locale) =>
+  date.toLocaleDateString(locale, { month: "short", year: "numeric" });
+
+const getDurationMonths = (dateStart, dateEnd) => {
+  const start = parseLocalDate(dateStart);
+  if (!start) return 0;
+  const end = parseLocalDate(dateEnd) ?? new Date();
+  let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  if (end.getDate() < start.getDate()) months -= 1;
+  return Math.max(0, months);
+};
+
+const formatDuration = (months, t) => {
+  if (months < 1) return t("work.durationMonths", { count: 1 });
+  const years = Math.floor(months / 12);
+  const rem = months % 12;
+  const parts = [];
+  if (years > 0) parts.push(t("work.durationYears", { count: years }));
+  if (rem > 0 || years === 0) parts.push(t("work.durationMonths", { count: rem || months }));
+  return parts.join(" ");
+};
+
+const ExperienceCard = ({ experience, lang, index }) => {
+  const { t, i18n } = useTranslation();
+  const title = localized(experience.title, lang);
+  const company = experience.company_name;
+  const points = localized(experience.points, lang);
+  const pointList = Array.isArray(points) ? points : [];
+
+  const start = parseLocalDate(experience.dateStart);
+  const end = parseLocalDate(experience.dateEnd);
+  const locale = i18n.language?.startsWith("es") ? "es" : "en";
+  const dateLabel = start
+    ? `${formatMonthYear(start, locale)} - ${end ? formatMonthYear(end, locale) : t("work.today")}`
+    : "";
+  const duration = start ? formatDuration(getDurationMonths(experience.dateStart, experience.dateEnd), t) : null;
 
   return (
     <motion.li variants={fadeIn("up", "spring", index * 0.15, 0.75)} className="relative pl-10 sm:pl-14">
@@ -42,20 +84,25 @@ const ExperienceCard = ({ experience, localeContent, index }) => {
               {company}
             </a>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col items-end gap-1.5">
             {experience.current && (
               <span className="rounded-full bg-accent-blue/15 border border-accent-blue/40 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent-blue">
                 {t("work.current")}
               </span>
             )}
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-secondary whitespace-nowrap">
-              {localeContent?.date ?? experience.date}
-            </span>
+            {dateLabel && (
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-secondary whitespace-nowrap">
+                {dateLabel}
+              </span>
+            )}
+            {duration && (
+              <span className="text-[11px] text-secondary/80 whitespace-nowrap">{duration}</span>
+            )}
           </div>
         </header>
 
         <ul className="mt-5 space-y-2">
-          {points.map((point, i) => (
+          {pointList.map((point, i) => (
             <li key={i} className="flex gap-3 text-[14px] leading-relaxed text-white/85">
               <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-accent-blue/70" aria-hidden />
               {point}
@@ -81,9 +128,8 @@ const ExperienceCard = ({ experience, localeContent, index }) => {
 };
 
 const Experience = () => {
-  const { t } = useTranslation();
-  const raw = t("work.experiences", { returnObjects: true });
-  const localeExperiences = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.startsWith("es") ? "es" : "en";
 
   return (
     <>
@@ -99,7 +145,7 @@ const Experience = () => {
             key={experience.company_name}
             index={index}
             experience={experience}
-            localeContent={localeExperiences[index]}
+            lang={lang}
           />
         ))}
       </ol>
