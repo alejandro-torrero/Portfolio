@@ -29,6 +29,8 @@ const ICONS = {
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
   redis:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original-wordmark.svg",
+  gin: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/gin.svg",
+  gcp: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original-wordmark.svg",
 };
 
 const languages = [
@@ -52,6 +54,7 @@ const frontend = [
 const backend = [
   { name: "Node.js", icon: nodejs },
   { name: "Express", icon: expressIcon },
+  { name: "Gin", icon: ICONS.gin },
   { name: "MongoDB", icon: mongodb },
   { name: "MySQL", icon: mysql },
   { name: "PostgreSQL", icon: ICONS.postgres },
@@ -62,6 +65,7 @@ const tools = [
   { name: "Git", icon: git },
   { name: "Docker", icon: docker },
   { name: "AWS", icon: ICONS.aws },
+  { name: "GCP", icon: ICONS.gcp },
   { name: "Microsoft IIS", icon: iis },
 ];
 

@@ -105,7 +105,7 @@ const en = {
     backToDiscoveries: "Back to discoveries",
     featuredHeadText: "Discoveries",
     description:
-      "Notes from running and learning from open-source projects — with credit to the people who built them.",
+      "This section isn't specially about myself, but about how I find open source projects that are really intersting and is good to learn from them while giving credit to the original creators. You might find inspiration on them as I did.",
     viewAll: "View all {{count}} discoveries",
     viewDiscovery: "Read discovery",
     originalProject: "Original project",
@@ -119,7 +119,7 @@ const en = {
     noResults: "No discoveries match your search.",
     clearFilters: "Clear filters",
     detailsSoon: "Details coming soon",
-    emptyFeatured: "New discoveries coming soon — explorations of open-source projects with credit to their creators.",
+    emptyFeatured: "New discoveries coming soon",
     emptyList: "No discoveries published yet. Check back soon.",
     published: "Published",
     lastUpdated: "Updated",
