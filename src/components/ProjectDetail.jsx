@@ -195,6 +195,19 @@ const ProjectDetail = () => {
                     <p className="text-secondary text-[16px] leading-relaxed">
                       {localized(section.body, lang)}
                     </p>
+                    {section.bulletpoints && section.bulletpoints.length > 0 && (
+                        <ul className="space-y-2 max-w-3xl">
+                          {section.bulletpoints.map((item, i) => (
+                            <li
+                              key={i}
+                              className="flex gap-3 text-secondary text-[15px] leading-relaxed"
+                            >
+                              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent-blue shrink-0" />
+                              {localized(item, lang)}
+                            </li>
+                          ))}
+                        </ul>
+                    )}
                     {section.images?.length > 0 && (
                       <div className="grid gap-4 pt-2">
                         {section.images.map((src, i) => (

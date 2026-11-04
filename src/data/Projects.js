@@ -7,9 +7,35 @@ import {
   leetcodeCover,
   reflexionCover,
   correctiveRagCover,
+  deepLearningCover,
 } from "../assets";
 
 export const projects = [
+  {
+    id: "13d97f21-350d-4441-9784-ae6154f4dfa5",
+    name :{
+      en: "Deep learning study",
+      es: "Deep learning"
+    },
+    featured: true,
+    description:{
+      en:"Repository containing my study on deep learning courses and books",
+      es:"Respositorio con el contenido de mis estudios de deep learning"
+    },
+    tags:[
+      {
+        name: "Python",
+        color: "#3776ab",
+      },
+      {
+        name: "Deep Learning",
+        color: "#f772fa",
+      },
+    ],
+    image: deepLearningCover,
+    source_code_link: "https://github.com/alejandro-torrero/py-dl",
+    link: "/project/13d97f21-350d-4441-9784-ae6154f4dfa5",
+  },
   {
     id: "6f2a9c14-3e7b-4d81-9a05-c8b1e4f07d22",
     name: {

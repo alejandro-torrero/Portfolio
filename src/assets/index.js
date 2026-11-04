@@ -52,6 +52,7 @@ import odDashboard from "./projects/ti-sys/odDashboard.png";
 import leetcodeCover from "./projects/leetcode/leetcode.jpg";
 import reflexionCover from "./projects/reflexion/reflexion.jpg";
 import correctiveRagCover from "./projects/corrective-rag/corrective-rag.jpg";
+import deepLearningCover from "./projects/deep-learning/deep-learning.jpeg"
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -99,4 +100,5 @@ export {
   leetcodeCover,
   reflexionCover,
   correctiveRagCover,
+  deepLearningCover,
 };

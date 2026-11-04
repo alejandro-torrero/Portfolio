@@ -1,18 +1,3 @@
-/**
- * Detail-page content for the LeetCode solutions project.
- * Keyed by the same id as in Projects.js so ProjectDetail can look it up.
- *
- * Shape (reusable for other projects):
- * - projectId: string — must match projects[].id
- * - date / lastUpdated: YYYY-MM-DD (optional)
- * - tags: [{ name, color }] (optional; falls back to project.tags)
- * - cover: image import (optional; falls back to project.image)
- * - intro: { en, es } — short lead under the title
- * - sections: [{ id, title: { en, es }, body: { en, es }, images?: [] }]
- * - highlights: [{ en, es }] — optional bullet points
- * - links: [{ label: { en, es }, href }] — optional extra CTAs
- * - disclaimer: { en, es } — optional footnote at the end
- */
 export const leetcodeContent = {
   projectId: "48e23f86-11a8-48a7-b9ad-a55ba813dc78",
   date: "2026-10-11",
