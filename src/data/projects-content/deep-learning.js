@@ -43,7 +43,7 @@ export const deepLearningContent = {
         en: "Github repo",
         es: "Github repo",
       },
-      href: "https://github.com/alejandro-torrero/leetcode",
+      href: "https://github.com/alejandro-torrero/py-dl",
     },
   ],
 };

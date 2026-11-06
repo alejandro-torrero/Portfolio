@@ -57,8 +57,7 @@ const ProjectDetail = () => {
   const hasMeta = published || lastUpdated || tags.length > 0 || repoLinks.length > 0;
 
   return (
-    <div className="relative z-0 bg-primary min-h-screen flex flex-col overflow-hidden">
-      {/* Soft blue wash — case-study atmosphere behind hero */}
+    <div className="relative z-0 bg-primary min-h-screen flex flex-col overflow-hidden">      
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px] sm:h-[620px]"
@@ -101,7 +100,7 @@ const ProjectDetail = () => {
 
             <div className="min-w-0 flex-1">
               <h1
-                className={`text-white font-black text-3xl sm:text-4xl md:text-5xl blue-text-gradient ${
+                className={`text-white font-black text-3xl sm:text-4xl md:text-5xl md:leading-[1.2] blue-text-gradient ${
                   hasMeta ? "mb-4" : "mb-8"
                 }`}
               >
