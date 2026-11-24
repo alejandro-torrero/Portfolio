@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 import { useTranslation } from "react-i18next";
 import { githubAccounts } from "../data";
+import { contributionsToGrid } from "../adapters/contributions";
 
-const CONTRIB_API = "https://gh-contributions-api.vercel.app";
+const CONTRIB_API = "https://github-contributions-api.jogruber.de/v4";
 
 // GitHub-style contribution level colors (dark theme)
 const LEVEL_COLORS = [
@@ -31,9 +32,13 @@ function useContributions(username, year) {
     if (!username || !year) return;
     setLoading(true);
     setError(null);
-    fetch(`${CONTRIB_API}/${username}/${year}`)
+    fetch(`${CONTRIB_API}/${username}?y=${year}`)
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error("Failed to load"))))
-      .then(setData)
+      .then((json) => {
+        const weeks = contributionsToGrid(json.contributions ?? []);
+        const total = json.total?.[year] ?? json.total?.[String(year)] ?? null;
+        setData({ weeks, total });
+      })
       .catch(setError)
       .finally(() => setLoading(false));
   }, [username, year]);
@@ -41,8 +46,10 @@ function useContributions(username, year) {
   return { data, loading, error };
 }
 
-function getTotalContributions(weeks) {
-  if (!weeks || !weeks.length) return 0;
+function getTotalContributions(data) {
+  if (typeof data?.total === "number") return data.total;
+  const weeks = data?.weeks;
+  if (!weeks?.length) return 0;
   let total = 0;
   for (const row of weeks) {
     if (!Array.isArray(row)) continue;
@@ -66,7 +73,7 @@ function getMonthLabels(weeks, cols) {
     }
     const month = cell?.month;
     if (month && month !== lastMonth) {
-      labels.push({ col, label: month.substring(0, 3) });
+      labels.push({ col, label: month });
       lastMonth = month;
     }
   }
@@ -75,14 +82,13 @@ function getMonthLabels(weeks, cols) {
 
 function ContributionGrid({ weeks }) {
   if (!weeks || !weeks.length) return null;
-  // API returns 7 rows (Sun–Sat), each row has ~53 entries (one per week). So data[row][col].
+  // Grid is 7 rows (Sun–Sat), each row has ~53 entries (one per week). So data[row][col].
   const rows = weeks.length;
   const cols = Math.max(0, ...weeks.map((row) => row?.length ?? 0));
   if (cols === 0) return null;
 
   const monthLabels = getMonthLabels(weeks, cols);
 
-  // Label row: one cell per column, show month abbreviation at first column of each month
   const labelCells = [];
   for (let col = 0; col < cols; col++) {
     const monthInfo = monthLabels.find((m) => m.col === col);
@@ -96,7 +102,6 @@ function ContributionGrid({ weeks }) {
     );
   }
 
-  // Contribution cells: row-major order
   const cells = [];
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
@@ -185,7 +190,7 @@ const ContributionCard = ({ username, label, openProfileText, loadingLabel, year
             {error && (
               <span className="text-secondary/80 text-sm">Unable to load contributions</span>
             )}
-            {!loading && !error && data && <ContributionGrid weeks={data} />}
+            {!loading && !error && data?.weeks && <ContributionGrid weeks={data.weeks} />}
           </div>
           <p className="mt-3 text-secondary text-xs sm:text-sm group-hover:text-white transition-colors">
             {openProfileText}
